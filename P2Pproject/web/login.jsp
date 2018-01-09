@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<jsp:useBean id="connection" class="databaseweb.MyConnection" scope="application"/> 
+<jsp:useBean id="connection" class="database.DBconnection" scope="application"/> 
 
 <%
             java.sql.PreparedStatement checkUser = connection.statement("select * from customer where cid=? and password=?");
