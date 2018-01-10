@@ -8,7 +8,6 @@
     <body>
         <h1>Login</h1>
 <br/>
-        <a href="shopping.jsp">Go shopping</a><br/>
         <a href="logout.jsp">Logout</a><br/>
 
        <h2>Password incorrect</h2>
