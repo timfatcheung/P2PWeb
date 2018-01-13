@@ -13,9 +13,10 @@
     </head>
     <body>
         <h1>Registration</h1>
-       <form action="loginController" method="post">
+       <form action="registerController" method="post">
             Username:<input name="username"/><br/>
             Password:<input type="password" name="password"/><br/>
+            confrim your password:<input type="password" name="password"/><br/>
             <input type="submit" name="submit" value="submit"/><br/>
         </form>
         <a href="login.jsp">login</a>
