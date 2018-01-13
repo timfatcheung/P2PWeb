@@ -6,32 +6,32 @@ package controller;
 public class UserBean {
    private String username;
    private String password; 
-   private String firstName;
-   private String lastName;
-   public boolean valid;   
+   private String password2;
+   private String UserName;
+   public boolean valid;  
+   public boolean OnlineStatus;
   
-   public void setFirstName(String FirstName) {
-         firstName = FirstName;
+   public void setUserName(String UserName) {
+         UserName = UserName;
 	}
-   public String getFirstName() {
-         return firstName;
+   public String getUserName() {
+         return UserName;
 	}
-   
-    public String getLastName() {
-         return lastName;
-			}
-
-      public void setLastName(String newLastName) {
-         lastName = newLastName;
-			}
-			
-
+   			
       public String getPassword() {
          return password;
 	}
 
       public void setPassword(String Password) {
          password = Password;
+	}
+      
+      public String getPassword2() {
+         return password2;
+	}
+
+      public void setPassword2(String Password2) {
+         password2 = Password2;
 	}
 	
 			
@@ -41,6 +41,15 @@ public class UserBean {
 
       public void setEmail(String Email) {
          username = Email;
+			}
+
+      
+       public boolean getOnlineStatus() {
+         return OnlineStatus;
+			}
+
+      public void getOnlineStatus(boolean OnlineStatus) {
+         OnlineStatus = OnlineStatus;
 			}
 
 				
