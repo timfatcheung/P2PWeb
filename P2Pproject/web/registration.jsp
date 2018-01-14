@@ -4,7 +4,7 @@
     Author     : cheungtimfat
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,9 +14,14 @@
     <body>
         <h1>Registration</h1>
        <form action="registerController" method="post">
-            Username:<input name="username"/><br/>
+            Username:<input type="text" name="username"/><br/>
             Password:<input type="password" name="password"/><br/>
-            confrim your password:<input type="password" name="password"/><br/>
+            Confirm your password:<input type="password" name="password2"/><br/>
+            Email:<input type="text" name="email"/><br/>
+            Gender:<select name="gender">
+                   <option value="M">M</option>
+                   <option value="F">F</option>
+                  </select>
             <input type="submit" name="submit" value="submit"/><br/>
         </form>
         <a href="login.jsp">login</a>

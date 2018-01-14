@@ -8,6 +8,8 @@ public class UserBean {
    private String password; 
    private String password2;
    private String UserName;
+   private String Email;
+   private String Gender;
    public boolean valid;  
    public boolean OnlineStatus;
   
@@ -17,7 +19,8 @@ public class UserBean {
    public String getUserName() {
          return UserName;
 	}
-   			
+   
+  			
       public String getPassword() {
          return password;
 	}
@@ -36,13 +39,19 @@ public class UserBean {
 	
 			
       public String getEmail() {
-         return username;
+         return Email;
 			}
 
       public void setEmail(String Email) {
-         username = Email;
+         Email = Email;
 			}
-
+       public void setGender(String Gender){
+          Gender = Gender;
+       }
+       
+       public String getGender() {
+         return Gender;
+			}
       
        public boolean getOnlineStatus() {
          return OnlineStatus;

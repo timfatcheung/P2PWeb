@@ -91,11 +91,13 @@ return bean;
       public static UserBean Resgister(UserBean bean) {
           Statement stmt = null;    
 	
-         String username = bean.getEmail();    
+         String username = bean.getUserName();    
          String password = bean.getPassword();
-	    
+	 String Email = bean.getEmail();
+         String Gender = bean.getGender();
+         boolean Online = false;
          String searchQuery =
-               "select * from users where username='"
+               "select * from Users where UserName='"
                         + username;
 	    
       System.out.println("user name is " + username);          
@@ -113,11 +115,12 @@ return bean;
          {
            
               stmt = currentCon.createStatement();
-                String query = "INSERT INTO Users VALUES ('" + bean.getUserName()
-                        + "', '" + bean.getPassword() + "', "
-                        
+                String query = "INSERT INTO Users VALUES ('" + username
+                        + "', '" + password + "', "
+                        + "', '" + Email + "', "
+                        + "', '" + Gender + "', "
                          
-                           + bean.getOnlineStatus () + "')" ;
+                           + Online+ "')" ;
                    
                if (stmt.executeUpdate(query) != 1) {
                    throw new Exception("Error adding employee");

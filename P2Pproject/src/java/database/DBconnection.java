@@ -31,8 +31,8 @@ public class DBconnection {
             
             try
             {            	
-               con  = DriverManager.getConnection("jdbc:mysql:///p2pweb",
-                    "root", "");;            								              
+               con  = DriverManager.getConnection("jdbc:mysql://p2pweb.cxkawmeddzl0.us-east-2.rds.amazonaws.com",
+                    "cheungtimfat", "p2pweb123456");;            								              
             }
             
             catch (SQLException ex)

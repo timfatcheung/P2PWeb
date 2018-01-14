@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 public class loginController extends HttpServlet {
     
-public void collection(HttpServletRequest request, HttpServletResponse response) throws ServletException, java.io.IOException {
+public void doPOST(HttpServletRequest request, HttpServletResponse response) throws ServletException, java.io.IOException {
 
 try
 {	    
