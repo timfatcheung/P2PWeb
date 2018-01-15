@@ -12,12 +12,12 @@ import javax.servlet.http.HttpSession;
 
 public class loginController extends HttpServlet {
     
-public void doPOST(HttpServletRequest request, HttpServletResponse response) throws ServletException, java.io.IOException {
+public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, java.io.IOException {
 
 try
 {	    
      UserBean user = new UserBean();
-     user.setEmail(request.getParameter("username"));
+     user.setUserName(request.getParameter("username").toString());
      user.setPassword(request.getParameter("password"));
 
      user = UserDAO.login(user);

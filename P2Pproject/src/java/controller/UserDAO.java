@@ -18,9 +18,9 @@ public class UserDAO {
          String password = bean.getPassword();   
 	    
          String searchQuery =
-               "select * from users where username='"
+               "select * from Users where username='"
                         + UserName
-                        + "' AND password='"
+                        + "' AND uPassword='"
                         + password
                         + "'";
 	    

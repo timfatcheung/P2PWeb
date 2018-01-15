@@ -14,7 +14,7 @@
 
 
         <form action="loginController" method="post">
-            Username:<input name="username"/><br/>
+            Username:<input type="text" name="username"/><br/>
             Password:<input type="password" name="password"/><br/>
             <input type="submit" name="submit" value="submit"/><br/>
         </form>
