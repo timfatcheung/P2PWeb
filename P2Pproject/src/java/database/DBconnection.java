@@ -27,12 +27,17 @@ public class DBconnection {
          try
          {
              Class.forName("com.mysql.jdbc.Driver");
-
+             String dbName = "p2pweb";
+             String userName = "cheungtimfat";
+             String password = "p2pweb123456";
+             String hostname = "p2pweb.cxkawmeddzl0.us-east-2.rds.amazonaws.com";
+             String port = "3306";
+             String jdbcUrl = "jdbc:mysql://" + hostname + ":" + port + "/" + dbName ;       
             
             try
-            {            	
-               con  = DriverManager.getConnection("jdbc:mysql://p2pweb.cxkawmeddzl0.us-east-2.rds.amazonaws.com",
-                    "cheungtimfat", "p2pweb123456");;            								              
+            {   
+                      
+               con  = DriverManager.getConnection(jdbcUrl,userName,password);          								              
             }
             
             catch (SQLException ex)

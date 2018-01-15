@@ -98,7 +98,7 @@ return bean;
          boolean Online = false;
          String searchQuery =
                "select * from Users where UserName='"
-                        + username;
+                        + username + "'";
 	    
       System.out.println("user name is " + username);          
       System.out.println("Query: "+searchQuery);
@@ -117,10 +117,10 @@ return bean;
               stmt = currentCon.createStatement();
                 String query = "INSERT INTO Users VALUES ('" + username
                         + "', '" + password + "', "
-                        + "', '" + Email + "', "
-                        + "', '" + Gender + "', "
+                         + "'" + Email + "', "
+                         + "'" + Gender + "', "
                          
-                           + Online+ "')" ;
+                           + Online+ ")" ;
                    
                if (stmt.executeUpdate(query) != 1) {
                    throw new Exception("Error adding employee");

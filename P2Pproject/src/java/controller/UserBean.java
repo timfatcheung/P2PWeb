@@ -14,7 +14,7 @@ public class UserBean {
    public boolean OnlineStatus;
   
    public void setUserName(String UserName) {
-         UserName = UserName;
+         this.UserName = UserName;
 	}
    public String getUserName() {
          return UserName;
@@ -26,7 +26,7 @@ public class UserBean {
 	}
 
       public void setPassword(String Password) {
-         password = Password;
+         this.password = Password;
 	}
       
       public String getPassword2() {
@@ -34,7 +34,7 @@ public class UserBean {
 	}
 
       public void setPassword2(String Password2) {
-         password2 = Password2;
+         this.password2 = Password2;
 	}
 	
 			
@@ -43,10 +43,10 @@ public class UserBean {
 			}
 
       public void setEmail(String Email) {
-         Email = Email;
+         this.Email = Email;
 			}
        public void setGender(String Gender){
-          Gender = Gender;
+          this.Gender = Gender;
        }
        
        public String getGender() {
@@ -58,7 +58,7 @@ public class UserBean {
 			}
 
       public void getOnlineStatus(boolean OnlineStatus) {
-         OnlineStatus = OnlineStatus;
+         this.OnlineStatus = OnlineStatus;
 			}
 
 				
@@ -67,7 +67,7 @@ public class UserBean {
 	}
 
       public void setValid(boolean Valid) {
-         valid = Valid;
+         this.valid = Valid;
 	}	
 }
 

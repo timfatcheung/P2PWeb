@@ -18,14 +18,13 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 try
 {	    
      UserBean user = new UserBean();
-     user.setUserName(request.getParameter("username"));
-     user.setEmail(request.getParameter("email"));
-     user.setGender(request.getParameter("gender"));
-     user.setPassword(request.getParameter("password"));
-     user.setPassword2(request.getParameter("password2"));
-
+     user.setUserName(request.getParameter("username").toString());
+     user.setEmail(request.getParameter("email").toString());
+     user.setGender(request.getParameter("gender").toString());
+     user.setPassword(request.getParameter("password").toString());
+     user.setPassword2(request.getParameter("password2").toString());
      user = UserDAO.Resgister(user);
-	   		    
+
      if (user.isValid())
      {
 	        
@@ -34,12 +33,12 @@ try
           response.sendRedirect("login.jsp"); //if inserted,redirect     		
      }
 	        
-     else 
-          response.sendRedirect("index.jsp"); //login failed
+     else {
+          response.sendRedirect("index.jsp"); // failed
 } 
 		
 		
-catch (Throwable Exception) 	    
+}catch (Throwable Exception) 	    
 {
      System.out.println(Exception); 
 }

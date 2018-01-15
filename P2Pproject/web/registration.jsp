@@ -13,7 +13,7 @@
     </head>
     <body>
         <h1>Registration</h1>
-       <form action="registerController" method="post">
+       <form action="registerController" accept-charset="UTF-8" method="post">
             Username:<input type="text" name="username"/><br/>
             Password:<input type="password" name="password"/><br/>
             Confirm your password:<input type="password" name="password2"/><br/>
