@@ -20,7 +20,7 @@
                     <form action="loginController" method="post">
                         Username:<input type="text" name="username" placeholder="Username" required="" />
                         Password:<input type="password" name="password" placeholder="Password" required="" />
-                        <input id="button1" style="border-radius: 5px;" type="submit" name="submit" value="Log in"/>
+                        <input id="button1" type="submit" name="submit" value="Log in"/>
                     </form>
                 </div>
             </div>

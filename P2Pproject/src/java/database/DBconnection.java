@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-
 public class DBconnection {
 
     private Connection connection;
@@ -19,38 +18,30 @@ public class DBconnection {
         }
     }
 
-     static Connection con;
-      static String url;
-            
-      public static Connection getConnection(){
-        
-         try
-         {
-             Class.forName("com.mysql.jdbc.Driver");
-             String dbName = "p2pweb";
-             String userName = "cheungtimfat";
-             String password = "p2pweb123456";
-             String hostname = "p2pweb.cxkawmeddzl0.us-east-2.rds.amazonaws.com";
-             String port = "3306";
-             String jdbcUrl = "jdbc:mysql://" + hostname + ":" + port + "/" + dbName ;       
-            
-            try
-            {   
-                      
-               con  = DriverManager.getConnection(jdbcUrl,userName,password);          								              
-            }
-            
-            catch (SQLException ex)
-            {
-               ex.printStackTrace();
-            }
-         }
+    static Connection con;
+    static String url;
 
-         catch(ClassNotFoundException e)
-         {
+    public static Connection getConnection() {
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            String dbName = "p2pweb";
+            String userName = "cheungtimfat";
+            String password = "p2pweb123456";
+            String hostname = "p2pweb.cxkawmeddzl0.us-east-2.rds.amazonaws.com";
+            String port = "3306";
+            String jdbcUrl = "jdbc:mysql://" + hostname + ":" + port + "/" + dbName;
+
+            try {
+
+                con = DriverManager.getConnection(jdbcUrl, userName, password);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        } catch (ClassNotFoundException e) {
             System.out.println(e);
-         }
+        }
 
-      return con;
-}
+        return con;
+    }
 }
