@@ -1,0 +1,67 @@
+body{
+    background-color: #f1f1f1;
+    font-size: 25px;
+}
+
+#header{
+    background-color: #3b5998;
+    width: 100%;
+    height: 90px;
+    margin: 40px 0px 0px 10px;
+}
+
+#headerlogo{
+    margin-left: 0%;
+    float: left;
+}
+
+#headerloginform{
+    float: right;
+    margin-right: 5%;
+    margin-top: 40px;
+    font-size: 25px;
+    color: #ffffff;
+}
+
+#button1{
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+#regForm{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: #ffffff;
+    margin: 100px auto;
+    padding: 40px;
+    width: 30%;
+    min-width: 300px;
+    border-radius: 5px;
+}
+
+h1{
+    text-align: center;
+    font-size: 45px;
+}
+
+.input{
+    padding: 10px;
+    width: 95%;
+    border: 1px solid #aaaaaa;
+    font-size: 25px;
+}
+
+#button{
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 25px;
+    cursor: pointer;
+    background-color: #8b9dc3;
+    border-radius: 5px;
+    float: right;
+}
+
+#button:hover{
+    opacity: 0.8;
+}
+

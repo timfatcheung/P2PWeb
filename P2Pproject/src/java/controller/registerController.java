@@ -30,7 +30,7 @@ try
 	        
           HttpSession session = request.getSession(true);	    
           session.setAttribute("SessionUser",user); 
-          response.sendRedirect("login.jsp"); //if inserted,redirect     		
+          response.sendRedirect("AfterRegistration.jsp"); //if inserted,redirect     		
      }
 	        
      else {

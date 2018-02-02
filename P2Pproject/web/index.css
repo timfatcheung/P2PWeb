@@ -1,0 +1,43 @@
+body{
+    background-color: #f1f1f1;
+}
+
+#header{
+    background-color: #3b5998;
+    width: 100%;
+    height: 90px;
+    margin: 40px 0px 0px 10px;
+}
+
+#header a{
+    text-decoration: none;
+    color: #000000;
+}
+
+#headerlogo{
+    margin-left: 0%;
+    float: left;
+}
+
+#headeruser{
+    float: left;
+    color: #ffffff;
+    font-size: 25px;
+    margin-top: 40px;
+    margin-left: 15%;
+}
+
+#logout{
+    float: right;
+    font-size: 25px;
+    margin-top: 40px;
+    margin-right: 5%;
+    cursor: pointer;
+    border: none;
+    background-color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+
