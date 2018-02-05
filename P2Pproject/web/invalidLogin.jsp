@@ -4,14 +4,16 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Invalid Login</title>
-        <link rel="stylesheet" type="text/css" href="invalidLogin.css">
+        <link rel="stylesheet" type="text/css" href="Form.css">
     </head>
+
+    <header>
+        <div id="header">
+            <div id="headerlogo"></div>
+        </div>
+    </header>
+
     <body>
-        <header>
-            <div id="header">
-                <div id="headerlogo"></div>
-            </div>
-        </header>
         <div id="form">
             <h1>Login Failed!!</h1> 
             Invaild username or password.<p/>

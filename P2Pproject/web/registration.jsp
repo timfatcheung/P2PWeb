@@ -12,20 +12,22 @@
         <title>AtoZ</title>
         <link rel="stylesheet" type="text/css" href="registration.css">
     </head>
-    <body>
-        <header>
-            <div id="header">
-                <div id="headerlogo"></div>
-                <div id="headerloginform">
-                    <form action="loginController" method="post">
-                        Username:<input type="text" name="username" placeholder="Username" required="" />
-                        Password:<input type="password" name="password" placeholder="Password" required="" />
-                        <input id="button1" type="submit" name="submit" value="Log in"/>
-                    </form>
-                </div>
+    
+    <header>
+        <div id="header">
+            <div id="headerlogo"></div>
+            <div id="headerloginform">
+                <form action="loginController" method="post">
+                    Username:<input type="text" name="username" placeholder="Username" required="" />
+                    Password:<input type="password" name="password" placeholder="Password" required="" />
+                    <input id="button1" type="submit" name="submit" value="Log in"/>
+                </form>
             </div>
-        </header>
+        </div>
+    </header>
 
+    <body>
+        
         <form action="registerController" accept-charset="UTF-8" method="post" id="regForm">
             <h1>Registration</h1>
             Username:<input class="input" type="text" name="username" placeholder="Enter your user name" required="" /><p/>

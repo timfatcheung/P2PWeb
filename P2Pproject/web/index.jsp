@@ -12,18 +12,30 @@
         <title>AtoZ</title>
         <link rel="stylesheet" type="text/css" href="index.css">
     </head>
-    <body>
-
-        <header>
-            <div id="header">
+    <header>
+        <div id="header">
+            <div id="headerbox">
                 <div id="headerlogo"></div>
                 <div id="headeruser">
                     Welcome, <%= User.getUserName()%>!
                 </div>
-                    <form method="link" action="logout.jsp">
+                <div>
+                    <form method="link" action="logout.jsp" >
                         <input id="logout" type="submit" value="Logout">
                     </form>
-        </header>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <body>
+        <div id="link">
+            <a href="findUser.jsp">Find User</a>
+            <a href="createChatroom.jsp">Create Chatroom</a>
+        </div>
+        <div id="main">
+
+        </div>
 
     </body>
 </html>

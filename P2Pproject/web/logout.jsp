@@ -8,18 +8,21 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Logout</title>
-        <link rel="stylesheet" type="text/css" href="invalidLogin.css">
+        <link rel="stylesheet" type="text/css" href="Form.css">
     </head>
+    
+    <header>
+        <div id="header">
+            <div id="headerlogo"></div>
+        </div>
+    </header>
+
     <body>
         <% session.invalidate();%>
-        <header>
-            <div id="header">
-                <div id="headerlogo"></div>
-            </div>
-        </header>
+     
         <div id="form">
-            <h1>Logout</h1> 
-            You are Successfully logged out.<p/>
+            <h1>Logout</h1><p> 
+            You are Successfully logged out.<p>
             <a href="registration.jsp">Go-Back To Hone Page</a>
         </div>
     </body>
