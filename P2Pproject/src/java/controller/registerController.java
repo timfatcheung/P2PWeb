@@ -30,7 +30,7 @@ public class registerController extends HttpServlet {
                 session.setAttribute("SessionUser", user);
                 response.sendRedirect("AfterRegistration.jsp"); //if inserted,redirect     		
             } else {
-                response.sendRedirect("index.jsp"); // failed
+                response.sendRedirect("invalidRegistration.jsp"); // failed
             }
 
         } catch (Throwable Exception) {

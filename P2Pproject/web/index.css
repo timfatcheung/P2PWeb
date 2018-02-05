@@ -31,15 +31,12 @@ body{
 
 #logout{
     float: right;
-    font-size: 25px;
+    font-size: 20px;
     margin-top: 40px;
     margin-right: 5%;
     cursor: pointer;
-    border: none;
+    border-radius: 5px; 
     background-color: #ffffff;
-    text-decoration: none;
-    border-radius: 5px;
-    padding: 2px;
 }
 
 

@@ -110,7 +110,7 @@ public class UserDAO {
                         + Online + ")";
 
                 if (stmt.executeUpdate(query) != 1) {
-                    throw new Exception("Error adding employee");
+                    throw new Exception("Error adding user");
                 }
                 bean.setValid(true);
             } //if user exists set the isValid variable to true

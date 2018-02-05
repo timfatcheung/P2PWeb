@@ -20,10 +20,9 @@
                 <div id="headeruser">
                     Welcome, <%= User.getUserName()%>!
                 </div>
-                <div id="logout">
-                    <a href="logout.jsp">Log out</a>
-                </div>
-            </div>
+                    <form method="link" action="logout.jsp">
+                        <input id="logout" type="submit" value="Logout">
+                    </form>
         </header>
 
     </body>
