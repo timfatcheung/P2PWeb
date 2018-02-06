@@ -1,7 +1,6 @@
-*{
+body{
     background-color: #f1f1f1;
     font-size: 25px;
-    margin: 0;
 }
 
 #header{
@@ -24,12 +23,7 @@
     color: #ffffff;
 }
 
-#button1{
-    background-color: #ffffff;
-    cursor: pointer;
-    border-radius: 5px; 
-    font-size: 20px;
-}
+
 
 #regForm{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
