@@ -31,7 +31,11 @@
     <body>
         <div id="link">
             <a href="findUser.jsp">Find User</a>
-            <a href="createChatroom.jsp">Create Chatroom</a>
+            <a href="/servlet/openChat">Chatroom</a>
+            <form name="submitForm" method="POST" action="servlet/openChat">
+             <input type="hidden" name="param1" value="param1Value">
+             <A HREF="javascript:document.submitForm.submit()">Click Me</A>
+</form>
         </div>
         <div id="main">
 
