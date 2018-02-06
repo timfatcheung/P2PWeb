@@ -55,7 +55,6 @@ public class UserDAO {
                 }
                 rs = null;
             }
-
             if (stmt != null) {
                 try {
                     stmt.close();
@@ -63,7 +62,6 @@ public class UserDAO {
                 }
                 stmt = null;
             }
-
             if (currentCon != null) {
                 try {
                     currentCon.close();
@@ -73,7 +71,6 @@ public class UserDAO {
                 currentCon = null;
             }
         }
-
         return bean;
 
     }
@@ -101,7 +98,6 @@ public class UserDAO {
 
             // User not found, isValid == true,insert data
             if (!more) {
-
                 stmt = currentCon.createStatement();
                 String query = "INSERT INTO Users VALUES ('" + username
                         + "', '" + password + "', "
@@ -128,6 +124,57 @@ public class UserDAO {
                 }
                 rs = null;
             }
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (Exception e) {
+                }
+                stmt = null;
+            }
+            if (currentCon != null) {
+                try {
+                    currentCon.close();
+                } catch (Exception e) {
+                }
+                currentCon = null;
+            }
+        }
+        return bean;
+    }
+
+    public static UserBean search(UserBean bean) {
+        Statement stmt = null;
+
+        String UserName = bean.getUserName();
+        String searchQuery
+                = "select * from Users where username like'" + UserName + "%'";
+
+        try {
+            currentCon = DBconnection.getConnection();
+            stmt = currentCon.createStatement();
+            rs = stmt.executeQuery(searchQuery);
+            boolean more = rs.next();
+
+            // User not found, isValid == false
+            if (!more) {
+                System.out.println("Sorry, no user find");
+                bean.setValid(false);
+            } //if user exists set the isValid variable to true
+            else if (more) {
+                String username = rs.getString("UserName");
+                bean.setUserName(UserName);
+                bean.setValid(true);
+            }
+        } catch (Exception ex) {
+            System.out.println("Log In failed: An Exception has occurred! " + ex);
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception e) {
+                }
+                rs = null;
+            }
 
             if (stmt != null) {
                 try {
@@ -142,7 +189,6 @@ public class UserDAO {
                     currentCon.close();
                 } catch (Exception e) {
                 }
-
                 currentCon = null;
             }
         }
