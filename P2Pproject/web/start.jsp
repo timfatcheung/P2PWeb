@@ -1,12 +1,12 @@
-<%-- Written by Sukhwinder Singh (ssruprai@hotmail.com --%>
 
-<%@ page errorPage="error.jsp" import="java.util.Set,java.util.Iterator,java.util.Map,sukhwinder.chat.*"%>
+<%@ page errorPage="error.jsp" import="java.util.Set,java.util.Iterator,java.util.Map,sukhwinder.chat.*" import="controller.UserBean"%>
 <%
 	String roomname = request.getParameter("rn");
-	String nickname = (String)session.getAttribute("nickname");
+	UserBean User = (UserBean) (session.getAttribute("SessionUser"));
 	ChatRoomList roomlist = (ChatRoomList) application.getAttribute("chatroomlist");
-	if (nickname == null)
+	if (User.getUserName() == null)
 	{
+               System.out.println(User.getUserName());
 		response.sendRedirect("login.jsp");
 	}
 	else if (roomname == null)
@@ -22,27 +22,27 @@
 			out.close();
 			return;
 		}
-		ChatRoom chatRoomOld = roomlist.getRoomOfChatter(nickname);
+		ChatRoom chatRoomOld = roomlist.getRoomOfChatter(User.getUserName());
 		if (chatRoomOld != null && chatRoom != null)
 		{
-			Chatter chatter = chatRoomOld.getChatter(nickname);
+			Chatter chatter = chatRoomOld.getChatter(User.getUserName());
 			
 			if (!chatRoomOld.getName().equals(chatRoom.getName()))
 			{
-				chatRoomOld.removeChatter(nickname);
+				chatRoomOld.removeChatter(User.getUserName());
 				chatRoom.addChatter(chatter);
 				if (!chatRoomOld.getName().equalsIgnoreCase("StartUp"))
 				{
-					chatRoomOld.addMessage(new Message("system", nickname + " has left and joined " + 	chatRoom.getName() + ".", new java.util.Date().getTime()));
+					chatRoomOld.addMessage(new Message("system", User.getUserName() + " has left and joined " + 	chatRoom.getName() + ".", new java.util.Date().getTime()));
 				}
-				chatRoom.addMessage(new Message("system", nickname + " has joined.", new java.util.Date().getTime()));
+				chatRoom.addMessage(new Message("system", User.getUserName() + " has joined.", new java.util.Date().getTime()));
 				chatter.setEnteredInRoomAt(new java.util.Date().getTime());
 
 			}
 
-			if (session.getAttribute("nickname") == null)
+			if (session.getAttribute("SessionUser") == null)
 			{
-				session.setAttribute("nickname", nickname);
+				session.setAttribute("SessionUser", User.getUserName());
 			}
 			response.sendRedirect("chat.jsp");
 		}

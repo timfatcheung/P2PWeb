@@ -1,15 +1,13 @@
-<!-- Written by Sukhwinder Singh (ssruprai@hotmail.com -->
-<%-- Written by Sukhwinder Singh (ssruprai@hotmail.com --%>
 
-<%@ page isErrorPage="false" errorPage="error.jsp" import="java.util.Set,java.util.Iterator,java.util.Map,sukhwinder.chat.*"%>
+<%@ page isErrorPage="false" errorPage="error.jsp" import="java.util.Set,java.util.Iterator,java.util.Map,sukhwinder.chat.*" import="controller.UserBean"%>
 <% 
 	
-	String nickname = (String)session.getAttribute("nickname");
+	UserBean User = (UserBean) (session.getAttribute("SessionUser"));
 	
-	if (nickname != null && nickname.length() > 0)
+	if (User.getUserName() != null)
 	{
 		ChatRoomList roomList = (ChatRoomList)application.getAttribute("chatroomlist");
-		ChatRoom chatRoom = roomList.getRoomOfChatter(nickname);
+		ChatRoom chatRoom = roomList.getRoomOfChatter(User.getUserName());
 		if ( chatRoom != null)
 		{
 			String msg = request.getParameter("messagebox");
@@ -17,7 +15,7 @@
 			if ( msg != null && msg.length() > 0)
 			{
 				msg = msg.trim();
-				chatRoom.addMessage(new Message(nickname, msg, new java.util.Date().getTime()));
+				chatRoom.addMessage(new Message(User.getUserName(), msg, new java.util.Date().getTime()));
 			}
 	
 %>
@@ -25,7 +23,6 @@
 <HEAD>
 <LINK rel="stylesheet" type="text/css" href="chat.css">
 <META http-equiv="pragma" content="no-cache">
-<meta name="Author" content="Sukhwinder Singh (ssruprai@hotmail.com">	
 
 <SCRIPT language="JavaScript" type="text/javascript">
 <!--
@@ -61,7 +58,7 @@ function winopen(path)
 				<TR align="left" valign="top"> 
 					<FORM name="changeRoom" method="post" action="listrooms.jsp">
 						<TD width="15%"> 
-							<INPUT type="hidden" name="n" value="<%=nickname%>">
+							<INPUT type="hidden" name="n" value="<%=User.getUserName()%>">
 							<INPUT name="ChangeRoom" type="submit" id="ChangeRoom" value="Change Room">
 						</TD>
 					</FORM>
@@ -104,6 +101,6 @@ function winopen(path)
 	}
 	else
 	{
-		response.sendRedirect("login.jsp");
+		response.sendRedirect("resgistration.jsp");
 	}
 %>

@@ -1,17 +1,11 @@
-<!-- Written by Sukhwinder Singh (ssruprai@hotmail.com -->
-<%-- Written by Sukhwinder Singh (ssruprai@hotmail.com --%>
-
-<!-- I have left this file as jsp because in future some authentication may be added here -->
 
 <html>
 <head>
 	<title>Add new Room</title>
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/chat.css">
-	<meta name="Author" content="Sukhwinder Singh (ssruprai@hotmail.com">	
 </head>
 
 <body>
-<%@ include file="header.jsp" %>
 
 <div align="center">
 <center>

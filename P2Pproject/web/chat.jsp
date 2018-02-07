@@ -1,20 +1,18 @@
-<!-- Written by Sukhwinder Singh (ssruprai@hotmail.com -->
-<%-- Written by Sukhwinder Singh (ssruprai@hotmail.com --%>
 
-<%@ page session="true" import="sukhwinder.chat.ChatRoomList, sukhwinder.chat.ChatRoom" errorPage="error.jsp"%>
+<%@ page session="true" import="sukhwinder.chat.ChatRoomList, sukhwinder.chat.ChatRoom" import="controller.UserBean"  errorPage="error.jsp"%>
 <%
-	String nickname = (String)session.getAttribute("nickname");
-	if (nickname != null && nickname.length() > 0)
+	UserBean User = (UserBean) (session.getAttribute("SessionUser"));
+	if (User.getUserName() != null && (User.getUserName().length() > 0))
 	{
 		ChatRoomList roomList = (ChatRoomList) application.getAttribute("chatroomlist");
-		ChatRoom room = roomList.getRoomOfChatter(nickname);
+		ChatRoom room = roomList.getRoomOfChatter(User.getUserName());
 		String roomname = room.getName();
 %>
 	
 <HTML>
 <HEAD>
-<TITLE>S2R Chat - <%=nickname%> (<%=roomname%>) </TITLE>
-<META name="Author" value="Sukhwinder Singh (ssruprai@hotmail.com)">
+<TITLE><%=User.getUserName()%> (<%=roomname%>) </TITLE>
+
 </HEAD>
 <FRAMESET rows="80%,20%">
 <FRAME SRC="displayMessages.jsp#current" name="MessageWin">
@@ -28,6 +26,6 @@
 }
 else
 {
-	response.sendRedirect("login.jsp");
+	response.sendRedirect("registration.jsp");
 }
 %>

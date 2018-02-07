@@ -1,25 +1,24 @@
-<!-- Written by Sukhwinder Singh (ssruprai@hotmail.com -->
-<%-- Written by Sukhwinder Singh (ssruprai@hotmail.com --%>
 
-<%@ page isErrorPage="false" errorPage="error.jsp" import="java.util.Set,java.util.Iterator,java.util.Map,java.util.Date,java.text.DateFormat,sukhwinder.chat.*"%>
+<%@ page isErrorPage="false" errorPage="error.jsp" import="java.util.Set,java.util.Iterator,java.util.Map,java.util.Date,java.text.DateFormat,sukhwinder.chat.*"  import="controller.UserBean"%>
 <%
 	String roonName = null;
-	String nickname = (String)session.getAttribute("nickname");
+	UserBean User = (UserBean) (session.getAttribute("SessionUser"));
 	ChatRoomList roomList = null;
 	ChatRoom chatRoom = null;
 	Chatter chatter = null;
 	Message[] messages = null;
 
-	if (nickname != null)
+	if (User.getUserName() != null)
 	{
+            System.out.println(User.getUserName() + "1");
 		try
 		{
 			roomList = (ChatRoomList) application.getAttribute("chatroomlist");
-			roonName = roomList.getRoomOfChatter(nickname).getName();
+			roonName = roomList.getRoomOfChatter(User.getUserName()).getName();
 			if (roonName != null && roonName != "")
 			{
 				chatRoom = roomList.getRoom(roonName);
-				chatter = chatRoom.getChatter(nickname);
+				chatter = chatRoom.getChatter(User.getUserName());
 				if (chatRoom != null)
 				{
 					long enteredAt = chatter.getEnteredInRoomAt();
@@ -90,11 +89,10 @@ function winopen(path)
 <table width="100%" border="0">
 <tr>
 <td width="70%" valign="top">
-<%@ include file="header.jsp" %>
 <table>
 <tr>
 <td>
-<h3><i><%=(String)session.getAttribute("nickname")%></i> you are in room <b><%=roonName%></b></h3>
+<h3> you are in room <b><%=roonName%></b></h3>
 <%
 	
 	if(messages != null && messages.length > 0)
@@ -106,8 +104,9 @@ function winopen(path)
 			String strmsg = message.getMessage();
 			long time = message.getTimeStamp();
 			Date date = new Date(time);
+                        String username = session.getAttribute("SessionUser").toString();
 
-			if (chatterName.equalsIgnoreCase((String)session.getAttribute("nickname")))
+			if (chatterName.equalsIgnoreCase(username))
 			{
 				out.write("<font face=\"Arial\" size=\"2\" color=\"blue\"><b>" + chatterName + " ("+ DateFormat.getTimeInstance().format(date)+ ")&gt;</b></font> " + strmsg+"<br>\n");
 			}
@@ -147,22 +146,22 @@ function winopen(path)
 	Chatter[] chatters = chatRoom.getChattersArray();
 	for(int i = 0; i < chatters.length; i++)
 	{
-		if (chatters[i].getName().equals(session.getAttribute("nickname")))
+		if (chatters[i].getName().equals(session.getAttribute("SessionUser")))
 		{
 	%>
-	<font face="Arial" size="2" color="blue"><%=chatters[i].getName() + " (" +chatters[i].getSex() +")<br>"%></font>
+	<font face="Arial" size="2" color="blue"><%=chatters[i].getName() + " <br>"%></font> 
 	<%
 		}
 		else
 		{
-			out.write("<font face=\"Arial\" size=\"2\"><a href=\"javascript:winopen('viewinfo.jsp?chatterName="+chatters[i].getName() + "')\" title=\"View information about "+chatters[i].getName()+"\">"+ chatters[i].getName()+"</a> (" + chatters[i].getSex()+")</font><br>");
+			out.write("<font face=\"Arial\" size=\"2\"><a href=\"javascript:winopen('viewinfo.jsp?chatterName="+chatters[i].getName() + "')\" title=\"View information about "+chatters[i].getName()+"\">"+ chatters[i].getName()+"</a> </font><br>");
 		}
 	}
 
 }
 else
 {
-	response.sendRedirect("login.jsp");
+	response.sendRedirect("registration.jsp");
 }
 %>
 		</td>

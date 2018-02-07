@@ -1,12 +1,8 @@
-<!-- Written by Sukhwinder Singh (ssruprai@hotmail.com -->
-<%-- Written by Sukhwinder Singh (ssruprai@hotmail.com --%>
-
 <%@ page session="true" errorPage="error.jsp" import="java.util.Set,java.util.Iterator,java.util.Map,sukhwinder.chat.*"  import="controller.UserBean"%>
 <HTML>
 <HEAD>
 <TITLE>SS Chat - Room List</TITLE>
 <LINK rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/chat.css">
-<meta name="Author" content="Sukhwinder Singh (ssruprai@hotmail.com">	
 <SCRIPT language="JavaScript">
 
 </SCRIPT>

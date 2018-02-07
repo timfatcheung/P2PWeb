@@ -5,8 +5,7 @@
 <HTML>
 <HEAD>
 <TITLE>Error Occurred</TITLE>
-<META http-equiv="pragma" content="no-cache">
-<meta name="Author" content="Sukhwinder Singh (ssruprai@hotmail.com">	
+<META http-equiv="pragma" content="no-cache">	
 <LINK rel="stylesheet" href="<%=request.getContextPath()%>/chat.css" type="text/css">
 </HEAD>
 <BODY bgcolor="#FFFFFF">

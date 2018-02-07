@@ -1,5 +1,4 @@
-<!-- Written by Sukhwinder Singh (ssruprai@hotmail.com -->
-<%-- Written by Sukhwinder Singh (ssruprai@hotmail.com --%>
+
 
 <%@ page errorPage="error.jsp" %>
 <%
@@ -28,7 +27,6 @@
 	 <META name="author" content="Sukhwinder Singh (ssruprai@hotmail.com)">
 	</HEAD>
 	<BODY bgcolor="#FFFFFF" onLoad="document.login.nickname.focus();">
-	<%@ include file="/header.jsp" %>
     <TABLE width="40%" border="0" cellspacing="1" cellpadding="1" align="center">
       <%
       String d=request.getParameter("d");
