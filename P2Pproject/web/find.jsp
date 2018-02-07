@@ -14,7 +14,6 @@
 <HEAD>
 <TITLE>Find your friend</TITLE>
 <META http-equiv="pragma" content="no-cache">
-<meta name="Author" content="Sukhwinder Singh (ssruprai@hotmail.com">	
 <LINK rel="stylesheet" href="<%=request.getContextPath()%>/chat.css" type="text/css">
 </HEAD>
 <BODY>
