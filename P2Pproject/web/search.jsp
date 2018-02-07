@@ -17,7 +17,18 @@
   List<UserBean> urss = (List<UserBean>) request.getAttribute("search");
   if(urss!=null){
     for(UserBean urs: urss){
-       out.println("<br/>" + urs.getUserName());
+       %>
+       <table>
+           <tr><th>User Name:</th></tr><tr><td>
+               <FORM name="addFriend" action="FriendController" method="post">   
+                   <%= urs.getUserName() %>
+                   <input type="hidden" name="user" value="<%= urs.getUserName() %>"/>
+                   <input type="hidden" name="sessionuser" value="<%= User.getUserName() %>"/>
+                   <input type="submit" name="submit" value="Add Friend"/>
+               </form>
+               </td></tr>
+       </table>
+       <%
      }
   }
 %>

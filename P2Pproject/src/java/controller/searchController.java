@@ -17,7 +17,7 @@ public class searchController extends HttpServlet {
         try {
             UserBean user = new UserBean();
             user.setUserName(request.getParameter("username").toString());
-            user = UserDAO.search(user);
+            user = UserDAO.search(user , request , response);
             if (user.isValid()) {
                
                 String username =  user.getUserName();
