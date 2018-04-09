@@ -10,7 +10,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-        <header>
+    <header>
         <div id="header">
             <div id="headerbox">
                 <div id="headerlogo"></div>
@@ -26,6 +26,14 @@
         </div>
     </header>
     <body>
-
+        <form action="search" method="post">
+            <input type="text" name="username" placeholder="Username" required="" />               
+            <input id="button1" type="submit" value="Search"/>
+        </form>
+         <!-- Use foreach to print username from the Users -->
+        <form method="post" action="addFriendList">
+            <input type="checkbox" name ="UserName" value="%=user%"/>UserName<br/>
+            <input type="hidden" name ="confirm" value="false"/>
+        </form>
     </body>
 </html>
