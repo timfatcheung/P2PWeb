@@ -33,12 +33,21 @@
             <a href="findUser.jsp">Find User</a>
             <a href="/servlet/openChat">Chatroom</a>
             <form name="submitForm" method="POST" action="servlet/openChat">
-             <input type="hidden" name="param1" value="param1Value">
-             <A HREF="javascript:document.submitForm.submit()">Click Me</A>
-</form>
+                <input type="hidden" name="param1" value="param1Value">
+                <A HREF="javascript:document.submitForm.submit()">Click Me</A>
+            </form>
         </div>
         <div id="main">
-
+            <!-- Use foreach to print username from the Users 
+            
+            <form method="post" action="addFriendList">
+            foreach (String user : friendlist.friendname()){ 
+            <input type="checkbox" name ="UserName" value="%=user%"/>UserName<br/>
+            <input type="hidden" name ="confirm" value="true"/>
+            }
+            <input type="submit" name="submit" value="Submit"/>
+            </form> 
+            -->
         </div>
 
     </body>
