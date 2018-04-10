@@ -1,3 +1,5 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
 <%@ page language="java" 
          contentType="text/html; charset=windows-1256"
          pageEncoding="windows-1256"
@@ -38,11 +40,15 @@
             </form>
         </div>
         <div id="main">
+            <!--%! String sql = "SELECT User.getUserName()FriendName FROM FriendList WHERE Confirm=false"; 
+              Statement stmt = con.createStatement();
+              ResultSet rs = stmt.executeQuery(sql);
+            %>
             <!-- Use foreach to print username from the Users 
             
             <form method="post" action="addFriendList">
-            foreach (String user : friendlist.friendname()){ 
-            <input type="checkbox" name ="UserName" value="%=user%"/>UserName<br/>
+            for (var i in rs){ 
+            <input type="checkbox" name ="UserName" value="%=row[i].getUserName%"/>%=row[i].getUserName%<br/>
             <input type="hidden" name ="confirm" value="true"/>
             }
             <input type="submit" name="submit" value="Submit"/>

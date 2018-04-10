@@ -32,10 +32,14 @@
                         <tr>
                             <td><b>Description</b></td><td><textarea rows="5" cols="30" name="rd"></textarea></td>
                         </tr>
-                        <!-- Use foreach to print username from the friendlist 
-                        %for (string user: friendlist.friendname()){%
+                         <!--%! String sql = "SELECT User.getUserName()FriendName FROM FriendList WHERE Confirm=true"; 
+                                Statement stmt = con.createStatement();
+                                ResultSet rs = stmt.executeQuery(sql);
+                          %>
+                         <!-- Use foreach to print username from the friendlist 
+                        for (var i in rs){ 
                         <tr>
-                        <input type="checkbox" name ="UserName" value="%=user%">%=user%
+                        <input type="checkbox" name ="UserName" value="%=row[i].getUserName%"/>%=row[i].getUserName%<br/>
                         </tr>
                         -->
                         <tr>

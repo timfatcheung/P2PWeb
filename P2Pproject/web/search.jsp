@@ -31,9 +31,11 @@
             <input id="button1" type="submit" value="Search"/>
         </form>
          <!-- Use foreach to print username from the Users -->
+         
         <form method="post" action="addFriendList">
-            <input type="checkbox" name ="UserName" value="%=user%"/>UserName<br/>
+            <input type="checkbox" name ="UserName" value="<%=UserName%>"/><%=UserNamer%><br/>
             <input type="hidden" name ="confirm" value="false"/>
+            <input type="submit" value="Submit"/>
         </form>
     </body>
 </html>
