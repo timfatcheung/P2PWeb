@@ -40,7 +40,7 @@
                 </tr>
                 <!--%for(String users : rs ) -->
                 <tr>
-                    <td><%=userse%></td>
+                    <td><%=users%></td>
                     <td>
                         <input type="checkbox" name ="Confirm" value="false"/>
                         <input type="hidden" name ="UserName" value="<%=users%>"/>
