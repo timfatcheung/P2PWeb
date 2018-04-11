@@ -33,7 +33,7 @@
                             <td><b>Description</b></td><td><textarea rows="5" cols="30" name="rd"></textarea></td>
                         </tr>
 
-                         <!-- Use foreach to print username from the friendlist 
+                        <!-- Use foreach to print username from the friendlist 
                         for (String users : rs ){ 
                         <tr>
                         <td>%=users%><input type="checkbox" name ="UserName" value="%=users%>"/><br/></td>
