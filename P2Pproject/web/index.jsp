@@ -40,7 +40,7 @@
             </form>
         </div>
         <div id="main">
-            <h1>Make your post!</h1>
+            <h3>Make your post!</h3>
             <form method="post" action="postController" id="postform">
                 <input type="hidden" name ="UserName" value="<%= User.getUserName()%>"/>
                 <textarea rows="4" cols="50" name="comment" form="postform">Enter text here.</textarea><br/>
