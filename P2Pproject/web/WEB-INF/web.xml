@@ -23,6 +23,23 @@
         </servlet-class>
     </servlet>
 
+ <servlet>
+        <servlet-name>
+            searchController
+        </servlet-name>
+        <servlet-class>
+            controller.searchController
+        </servlet-class>
+    </servlet>
+
+        <servlet>
+        <servlet-name>
+            FriendController
+        </servlet-name>
+        <servlet-class>
+            controller.FriendController
+        </servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>registerController</servlet-name>
         <url-pattern>/registerController</url-pattern>
@@ -32,6 +49,14 @@
         <url-pattern>/loginController</url-pattern>
     </servlet-mapping>
     
+    <servlet-mapping>
+        <servlet-name>searchController</servlet-name>
+        <url-pattern>/search</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FriendController</servlet-name>
+        <url-pattern>/FriendController</url-pattern>
+    </servlet-mapping>
            <servlet-mapping>
         <servlet-name>openChatServlet</servlet-name>
          <url-pattern>/servlet/openChat</url-pattern>

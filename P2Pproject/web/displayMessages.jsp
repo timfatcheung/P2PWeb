@@ -49,11 +49,9 @@
 <HTML>
 <HEAD>
 <!--<meta http-equiv="refresh" content="10">-->
-<meta name="Author" content="Sukhwinder Singh (ssruprai@hotmail.com">	
-
 <link rel="stylesheet" type="text/css" href="chat.css">
 <%
-	int refreshAfter = 10000; // 10 seconds
+	int refreshAfter = 1000; // 10 seconds
 	String t = application.getInitParameter("refreshAfter"); // gets seconds
 	if (t != null)
 	{

@@ -6,15 +6,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
+import javax.servlet.RequestDispatcher;
 
-public class search extends HttpServlet {
+public class searchController extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, java.io.IOException {
 
         try {
             UserBean user = new UserBean();
             user.setUserName(request.getParameter("username").toString());
-            user = UserDAO.search(user);
+            user = UserDAO.search(user , request , response);
             if (user.isValid()) {
                
                 String username =  user.getUserName();

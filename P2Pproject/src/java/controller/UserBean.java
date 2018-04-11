@@ -6,7 +6,7 @@ package controller;
  */
 public class UserBean {
 
-    private String username;
+    private String sessionName;
     private String password;
     private String password2;
     private String UserName;
@@ -23,6 +23,13 @@ public class UserBean {
         return UserName;
     }
 
+      public void setsessionName(String sessionName) {
+        this.sessionName = sessionName;
+    }
+
+    public String getsessionName() {
+        return sessionName;
+    }
     public String getPassword() {
         return password;
     }
