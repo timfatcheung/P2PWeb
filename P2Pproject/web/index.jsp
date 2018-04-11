@@ -53,8 +53,9 @@
             <tr>
             <td>%=users%></td>
             <td>
-            <input type="radio" name ="Confirm" value="yes"/>Yes
-            <input type="radio" name ="confirm" value="No"/>No
+            <input type="hidden" name ="UserName" value="%=users%>"/>
+            Yes<input type="radio" name ="Confirm" value="true"/>
+            No<input type="radio" name ="confirm" value="false"/>
             </td>
             </tr>
             }
