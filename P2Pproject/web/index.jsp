@@ -40,17 +40,25 @@
             </form>
         </div>
         <div id="main">
-            <!--%! String sql = "SELECT User.getUserName()FriendName FROM FriendList WHERE Confirm=false"; 
-              Statement stmt = con.createStatement();
-              ResultSet rs = stmt.executeQuery(sql);
-            %>
+
             <!-- Use foreach to print username from the Users 
             
             <form method="post" action="addFriendList">
-            for (var i in rs){ 
-            <input type="checkbox" name ="UserName" value="%=row[i].getUserName%"/>%=row[i].getUserName%<br/>
-            <input type="hidden" name ="confirm" value="true"/>
+            <table>
+            <tr>
+            <th>User:</th>
+            <th>Confirm?</th>
+            </tr>
+            for (Sting users : rs){ 
+            <tr>
+            <td>%=users%></td>
+            <td>
+            <input type="radio" name ="Confirm" value="yes"/>Yes
+            <input type="radio" name ="confirm" value="No"/>No
+            </td>
+            </tr>
             }
+            </table>
             <input type="submit" name="submit" value="Submit"/>
             </form> 
             -->

@@ -28,13 +28,26 @@
     <body>
         <form action="search" method="post">
             <input type="text" name="username" placeholder="Username" required="" />               
-            <input id="button1" type="submit" value="Search"/>
+            <input id="button1" type="submit" value="Search"/>           
         </form>
-         <!-- Use foreach to print username from the Users -->
-         
+        <!-- Use foreach to print username from the Users -->
+
         <form method="post" action="addFriendList">
-            <input type="checkbox" name ="UserName" value="<%=UserName%>"/><%=UserNamer%><br/>
-            <input type="hidden" name ="confirm" value="false"/>
+            <table>
+                <tr>
+                    <th>User:</th>
+                    <th>Add?</th>
+                </tr>
+                <!--%for(String users : rs ) -->
+                <tr>
+                    <td><%=userse%></td>
+                    <td>
+                        <input type="checkbox" name ="Confirm" value="false"/>
+                        <input type="hidden" name ="UserName" value="<%=users%>"/>
+                    </td>
+                </tr>
+                <!-- } -->
+            </table>
             <input type="submit" value="Submit"/>
         </form>
     </body>
