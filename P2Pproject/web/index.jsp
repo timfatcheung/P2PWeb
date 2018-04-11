@@ -55,7 +55,7 @@
             <td>
             <input type="hidden" name ="UserName" value="%=users%>"/>
             Yes<input type="radio" name ="Confirm" value="true"/>
-            No<input type="radio" name ="confirm" value="false"/>
+            No<input type="radio" name ="Confirm" value="false"/>
             </td>
             </tr>
             }
