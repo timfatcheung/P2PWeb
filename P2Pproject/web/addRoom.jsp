@@ -1,14 +1,45 @@
+<%@ page language="java" 
+         contentType="text/html; charset=windows-1256"
+         pageEncoding="windows-1256"
+         import="controller.UserBean"
+         %>
 
+<!DOCTYPE html>
+<% UserBean User = (UserBean) (session.getAttribute("SessionUser"));%>
 <html>
     <head>
-        <title>Add new Room</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Add new Room</title>
         <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/chat.css">
     </head>
 
     <body>
-
-        <div align="center">
-            <center>
+		<div id="container">
+			<header>
+        		<div id="header">
+            		<div id="headerbox">
+                		<div id="headerlogo">
+							<img src="logo.png" width="86" height="86"/>
+						</div>
+                		<div id="headeruser">
+                    		Welcome, <%= User.getUserName()%>!
+                		</div>
+                		<div>
+                    		<form method="link" action="logout.jsp" >
+                        		<input id="logout" type="submit" value="Logout">
+                    		</form>
+                		</div>
+            		</div>
+        		</div>
+   			</header>
+			
+			<div id="LeftMenu">
+				
+			</div>
+			<div style=margin: 0px auto; id="main">
+				<br/>
+            	<div align="center">
+            		<center>
                 <form action="<%=request.getContextPath()%>/servlet/manageChat" method="post">
                     <table width="80%" cellpadding="0" cellspacing="0" border="0">
                         <%
@@ -47,6 +78,11 @@
             </center>
         </div>
         <%@ include file="/footer.jsp"%>
+			</div>
+			<div id="RightBody">
+				
+			</div>
+		</div>
+	</body>
 
-    </body>
 </html>

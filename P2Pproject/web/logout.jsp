@@ -13,7 +13,9 @@
     
     <header>
         <div id="header">
-            <div id="headerlogo"></div>
+            <div id="headerlogo">
+				<img src="logo.png" width="91" height="90"/>
+			</div>
         </div>
     </header>
 

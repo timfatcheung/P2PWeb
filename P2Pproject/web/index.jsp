@@ -1,5 +1,3 @@
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.Statement"%>
 <%@ page language="java" 
          contentType="text/html; charset=windows-1256"
          pageEncoding="windows-1256"
@@ -14,38 +12,44 @@
         <title>AtoZ</title>
         <link rel="stylesheet" type="text/css" href="index.css">
     </head>
-    <header>
-        <div id="header">
-            <div id="headerbox">
-                <div id="headerlogo"></div>
-                <div id="headeruser">
-                    Welcome, <%= User.getUserName()%>!
-                </div>
-                <div>
-                    <form method="link" action="logout.jsp" >
-                        <input id="logout" type="submit" value="Logout">
-                    </form>
-                </div>
-            </div>
-        </div>
-    </header>
 
     <body>
-        <div id="link">
-            <a href="findUser.jsp">Find User</a>
-            <a href="/servlet/openChat">Chatroom</a>
-            <form name="submitForm" method="POST" action="servlet/openChat">
-                <input type="hidden" name="param1" value="param1Value">
-                <A HREF="javascript:document.submitForm.submit()">Click Me</A>
-            </form>
-        </div>
-        <div id="main">
-            <h3>Make your post!</h3>
-            <form method="post" action="postController" id="postform">
-                <input type="hidden" name ="UserName" value="<%= User.getUserName()%>"/>
-                <textarea rows="4" cols="50" name="comment" form="postform">Enter text here.</textarea><br/>
-                <input type="submit"  value="Submit">
-            </form>
+		<div id="container">
+			<header>
+        		<div id="header">
+            		<div id="headerbox">
+                		<div id="headerlogo">
+							<img src="logo.png" width="86" height="86"/>
+						</div>
+                		<div id="headeruser">
+                    		Welcome, <%= User.getUserName()%>!
+                		</div>
+                		<div>
+                    		<form method="link" action="logout.jsp" >
+                        		<input id="logout" type="submit" value="Logout">
+                    		</form>
+                		</div>
+            		</div>
+        		</div>
+   			</header>
+			
+			<div id="LeftMenu">
+				<br/>
+				<div id="FunctionBox01">
+            		<a href="findUser.jsp" align="center">Find User</a>
+				</div>
+				<div id="FunctionBox02">
+            		<a href="createChatroom.jsp">Create Chatroom</a>
+				</div>
+			</div>
+			<div style=margin: 0px auto; id="main">
+				<br/>
+            	<form method="post" action="postController" id="postform">
+					<input type="submit"  value="Make Post">
+					<br/>
+                	<input type="hidden" name ="UserName" value="<%= User.getUserName()%>"/>
+                	<textarea rows="4" cols="50" name="comment" form="postform" align="center">What's on your mind?</textarea>
+            	</form>
             
             <!-- Use foreach to print username from the Users 
             <h1>You have invite!</h1>
@@ -69,7 +73,11 @@
             <input type="submit" name="submit" value="Submit"/>
             </form> 
             -->
-        </div>
+			</div>
+			<div id="RightBody">
+				
+			</div>
+		</div>
+	</body>
 
-    </body>
 </html>
