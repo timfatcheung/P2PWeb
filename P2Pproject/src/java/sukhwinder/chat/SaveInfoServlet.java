@@ -1,4 +1,4 @@
-package sukhwinder.chat.servlet;
+package sukhwinder.chat;
 
 import java.io.IOException;
 import java.io.PrintWriter;

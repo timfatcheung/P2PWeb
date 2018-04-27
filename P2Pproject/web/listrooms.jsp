@@ -107,6 +107,6 @@ else
 <%
 	}
 %>
-<%@ include file="/footer.jsp"%>
+
 </BODY>
 </HTML>

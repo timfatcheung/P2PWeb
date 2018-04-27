@@ -3,7 +3,6 @@ package controller;
 import java.text.*;
 import java.util.*;
 import java.sql.*;
-import database.DBconnection;
 import database.DBlocal;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;

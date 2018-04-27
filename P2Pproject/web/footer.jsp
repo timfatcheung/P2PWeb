@@ -39,7 +39,7 @@
             		<a href="findUser.jsp" align="center">Find User</a>
 				</div>
 				<div id="FunctionBox02">
-            		<a href="createChatroom.jsp">Create Chatroom</a>
+            		<a href="servlet/openChat">Create Chatroom</a>
 				</div>
 			</div>
 			<div style=margin: 0px auto; id="main">

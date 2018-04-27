@@ -32,7 +32,7 @@ public class DBlocal {
 
                 con = DriverManager.getConnection(url, username, password);
             } catch (SQLException ex) {
-                ex.printStackTrace();
+                 System.out.println("Error obtaining connection with the database: " + ex);
             }
         
 

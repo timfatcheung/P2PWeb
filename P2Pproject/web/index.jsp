@@ -39,7 +39,10 @@
             		<a href="findUser.jsp" align="center">Find User</a>
 				</div>
 				<div id="FunctionBox02">
-            		<a href="createChatroom.jsp">Create Chatroom</a>
+            		            <form name="submitForm" method="POST" action="servlet/openChat">
+                <input type="hidden" name="param1" value="param1Value">
+                <A HREF="javascript:document.submitForm.submit()">Chat Room</A>
+            </form>
 				</div>
 			</div>
 			<div style=margin: 0px auto; id="main">
