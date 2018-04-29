@@ -168,6 +168,23 @@
 		<servlet-name>saveInfo</servlet-name>
 		<url-pattern>/servlet/saveInfo</url-pattern>
 	</servlet-mapping>
+        
+        
+        
+            <servlet>
+        <servlet-name>websocket</servlet-name>
+        <servlet-class>webchat.SocketServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>websocket</servlet-name>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>initServlet</servlet-name>
+        <servlet-class>webchat.InitServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
 	<welcome-file-list>
 		<welcome-file>login.jsp</welcome-file>
 		<welcome-file>login.html</welcome-file>

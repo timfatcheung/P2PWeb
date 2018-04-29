@@ -44,6 +44,10 @@
                 <A HREF="javascript:document.submitForm.submit()">Chat Room</A>
             </form>
 				</div>
+                                <div id="FunctionBox03">
+            		<a href="one.jsp" align="center">chat</a>
+				</div>
+                                
 			</div>
 			<div style=margin: 0px auto; id="main">
 				<br/>
