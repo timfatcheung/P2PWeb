@@ -32,7 +32,7 @@ public class UserDAO {
         System.out.println("Query: " + searchQuery);
 
         try {
-            currentCon = DBconnection.getConnection();
+            currentCon = DBlocal.getConnection();
             System.out.println(currentCon);
             stmt = currentCon.createStatement();
             rs = stmt.executeQuery(searchQuery);
@@ -96,7 +96,7 @@ public class UserDAO {
         System.out.println("Query: " + searchQuery);
 
         try {
-            currentCon = DBconnection.getConnection();
+            currentCon = DBlocal.getConnection();
             stmt = currentCon.createStatement();
             rs = stmt.executeQuery(searchQuery);
             boolean more = rs.next();
@@ -156,7 +156,7 @@ public class UserDAO {
         boolean Confirm = false;
 
         try {
-            currentCon = DBconnection.getConnection();
+            currentCon = DBlocal.getConnection();
             stmt = currentCon.createStatement();
 
                 stmt = currentCon.createStatement();
@@ -204,7 +204,7 @@ public class UserDAO {
                 = "select * from Users where username like'" + UserName + "%'";
 
         try {
-            currentCon = DBconnection.getConnection();
+            currentCon = DBlocal.getConnection();
             stmt = currentCon.createStatement();
             rs = stmt.executeQuery(searchQuery);
             while(rs.next()){

@@ -35,12 +35,12 @@
             ws.onopen = function(evt) {
                 //alert("open");
                 document.getElementById('denglu').innerHTML="在線";
-                document.getElementById('userName').innerHTML='小玲';
+                document.getElementById('userName').innerHTML='user';
             };
         }
 
         function sendMsg() {
-            var fromName = "小玲";
+            var fromName = "user";
             var toName = document.getElementById('name').value;  //發給誰
             var content = document.getElementById('writeMsg').value; //發送內容
             ws.send(fromName+","+toName+","+content);//注意格式

@@ -21,15 +21,15 @@ public class DBlocal {
     static Connection con;
     static String url;
 
-    public static Connection getConnection() {
+    public static Connection getConnection() throws ClassNotFoundException {
 
 
-        String url = "jdbc:derby://localhost:1527/p2p";
-        String username = "root";
-        String password = "root";
 
             try {
-
+                       Class.forName("org.apache.derby.jdbc.ClientDriver");
+                       String url = "jdbc:derby://localhost:1527/p2p";
+                       String username = "root";
+                         String password = "root";
                 con = DriverManager.getConnection(url, username, password);
             } catch (SQLException ex) {
                  System.out.println("Error obtaining connection with the database: " + ex);
