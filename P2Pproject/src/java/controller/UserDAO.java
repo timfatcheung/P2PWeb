@@ -1,5 +1,6 @@
 package controller;
 
+import database.DBconnection;
 import java.text.*;
 import java.util.*;
 import java.sql.*;
@@ -31,7 +32,8 @@ public class UserDAO {
         System.out.println("Query: " + searchQuery);
 
         try {
-            currentCon = DBlocal.getConnection();
+            currentCon = DBconnection.getConnection();
+            System.out.println(currentCon);
             stmt = currentCon.createStatement();
             rs = stmt.executeQuery(searchQuery);
             boolean more = rs.next();
@@ -94,7 +96,7 @@ public class UserDAO {
         System.out.println("Query: " + searchQuery);
 
         try {
-            currentCon = DBlocal.getConnection();
+            currentCon = DBconnection.getConnection();
             stmt = currentCon.createStatement();
             rs = stmt.executeQuery(searchQuery);
             boolean more = rs.next();
@@ -154,7 +156,7 @@ public class UserDAO {
         boolean Confirm = false;
 
         try {
-            currentCon = DBlocal.getConnection();
+            currentCon = DBconnection.getConnection();
             stmt = currentCon.createStatement();
 
                 stmt = currentCon.createStatement();
@@ -202,7 +204,7 @@ public class UserDAO {
                 = "select * from Users where username like'" + UserName + "%'";
 
         try {
-            currentCon = DBlocal.getConnection();
+            currentCon = DBconnection.getConnection();
             stmt = currentCon.createStatement();
             rs = stmt.executeQuery(searchQuery);
             while(rs.next()){

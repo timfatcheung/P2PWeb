@@ -1,28 +1,22 @@
-
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" import="controller.UserBean"%>
+         pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<% UserBean User = (UserBean) (session.getAttribute("SessionUser"));
-String username = User.getUserName() ;%>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Index</title>
     <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <%session.setAttribute("user", "小玲");%>
     <script type="text/javascript">
         var ws = null;
-        var User= "<% out.print(username);%>" ;
-        var connecturl = "ws://localhost:8080/P2Pproject/one/";
         function startWebSocket() {
             if ('WebSocket' in window)
-                ws = new WebSocket(connecturl + "<% out.print(username);%>" );
-            alert(User);
+                ws = new WebSocket("ws://localhost:8080/P2Pproject/two/小玲");
             else if ('MozWebSocket' in window)
-                ws = new MozWebSocket(connecturl + "<% out.print(username);%>");
-            alert(User);
+                ws = new MozWebSocket("ws://localhost:8080/P2Pproject/two/小玲");
             else
                 alert("not support");
+
 
             ws.onmessage = function(evt) {
                 //alert(evt.data);
@@ -39,17 +33,17 @@ String username = User.getUserName() ;%>
             };
 
             ws.onopen = function(evt) {
-                alert("open");
+                //alert("open");
                 document.getElementById('denglu').innerHTML="在線";
-                document.getElementById('userName').innerHTML="<% out.print(username);%>"
+                document.getElementById('userName').innerHTML='小玲';
             };
         }
 
         function sendMsg() {
-            var fromName = User;
-            var toName = document.getElementById('name').value;
-            var content = document.getElementById('writeMsg').value; 
-            ws.send(fromName+","+toName+","+content);
+            var fromName = "小玲";
+            var toName = document.getElementById('name').value;  //發給誰
+            var content = document.getElementById('writeMsg').value; //發送內容
+            ws.send(fromName+","+toName+","+content);//注意格式
         }
     </script>
 </head>
@@ -63,13 +57,12 @@ String username = User.getUserName() ;%>
 <br>
 <br>
 <br>
-<%= username %>
 
 發送給誰：<select id="name">
-    <option value="all">所有人</option>
-    <option value="小玲">小玲</option>
-    <option value="小摩納">小摩納</option>
-</select>
+            <option value="all">所有人</option>
+            <option value="小摩納">小摩納</option>
+            <option value="小明">小明</option>
+        </select>
 <br>
 發送內容：<input type="text" id="writeMsg"></input>
 <br>
