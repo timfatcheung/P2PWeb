@@ -80,7 +80,7 @@ public class UserDAO {
 
     }
 
-    public static UserBean Resgister(UserBean bean) {
+    public static UserBean Register(UserBean bean) {
         Statement stmt = null;
 
         String username = bean.getUserName();
@@ -147,8 +147,7 @@ public class UserDAO {
         return bean;
     }
 
-    
-        public static UserBean addfriend(UserBean bean) {
+    public static UserBean addfriend(UserBean bean) {
         Statement stmt = null;
 
         String username = bean.getUserName();
@@ -159,14 +158,14 @@ public class UserDAO {
             currentCon = DBlocal.getConnection();
             stmt = currentCon.createStatement();
 
-                stmt = currentCon.createStatement();
-                String query = "INSERT INTO FriendList VALUES ('" + sessionname
-                        + "', '" + username + "', "
-                        + Confirm + ")";
+            stmt = currentCon.createStatement();
+            String query = "INSERT INTO FriendList VALUES ('" + sessionname
+                    + "', '" + username + "', "
+                    + Confirm + ")";
 
-                if (stmt.executeUpdate(query) != 1) {
-                    throw new Exception("Error adding user");
-                }
+            if (stmt.executeUpdate(query) != 1) {
+                throw new Exception("Error adding user");
+            }
 
         } catch (Exception ex) {
             System.out.println("failed:Exception" + ex);
@@ -195,10 +194,10 @@ public class UserDAO {
         }
         return bean;
     }
-        
-    public static UserBean search(UserBean bean, HttpServletRequest request , HttpServletResponse response) {
+
+    public static UserBean search(UserBean bean, HttpServletRequest request, HttpServletResponse response) {
         Statement stmt = null;
-        List<UserBean> usrr = new ArrayList<UserBean>();
+        List<UserBean> users = new ArrayList<UserBean>();
         String UserName = bean.getUserName();
         String searchQuery
                 = "select * from Users where username like'" + UserName + "%'";
@@ -207,16 +206,15 @@ public class UserDAO {
             currentCon = DBlocal.getConnection();
             stmt = currentCon.createStatement();
             rs = stmt.executeQuery(searchQuery);
-            while(rs.next()){
-                UserBean usr =new UserBean();
-                usr.setUserName(rs.getString("UserName"));
-                usrr.add(usr);
+            while (rs.next()) {
+                UserBean user = new UserBean();
+                user.setUserName(rs.getString("UserName"));
+                users.add(user);
             }
-            request.setAttribute("search",usrr);
-                RequestDispatcher rd=request.getRequestDispatcher("search.jsp");    
-                rd.forward(request,response); 
+            request.setAttribute("search", users);
+            RequestDispatcher rd = request.getRequestDispatcher("search.jsp");
+            rd.forward(request, response);
 
-         
         } catch (Exception ex) {
             System.out.println("Log In failed: An Exception has occurred! " + ex);
         } finally {

@@ -22,7 +22,7 @@ public class registerController extends HttpServlet {
             user.setGender(request.getParameter("gender").toString());
             user.setPassword(request.getParameter("password").toString());
             user.setPassword2(request.getParameter("password2").toString());
-            user = UserDAO.Resgister(user);
+            user = UserDAO.Register(user);
 
             if (user.isValid()) {
 
