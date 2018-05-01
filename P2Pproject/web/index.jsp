@@ -11,6 +11,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>AtoZ</title>
         <link rel="stylesheet" type="text/css" href="index.css">
+        <script type="text/javascript" src="Websql.js"></script> 
+        <script type="text/javascript" src="IdDB.js"></script> 
     </head>
 
     <body>
@@ -57,6 +59,25 @@
                 	<input type="hidden" name ="UserName" value="<%= User.getUserName()%>"/>
                 	<textarea rows="4" cols="50" name="comment" form="postform" align="center">What's on your mind?</textarea>
             	</form>
+                        
+<div id="controls">
+    <input type="hidden" id="UserName" name ="UserName" value="<%= User.getUserName()%>"/>
+    <label>privacy setting:</label>
+    <select id="status">
+     <option value="public">public</option>
+     <option value="friends">friend only</option>
+</select>
+    <br />
+    <label>Post Something</label>
+    <textarea rows="4" cols="50" id="content" align="center"></textarea>
+    <br />
+    <button type="button" id="addcar" onclick="addPost();">POST</button>
+</div>
+<div id="postcontentholder">
+
+    <ul id="postcontent"></ul>
+</div>
+   
             
             <!-- Use foreach to print username from the Users 
             <h1>You have invite!</h1>
