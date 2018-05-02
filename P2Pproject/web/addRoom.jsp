@@ -65,7 +65,9 @@
                         </tr>
 
                         <!-- Use foreach to print username from the friendlist 
-                        for (String users : rs ){ 
+                        <List<FriendListBean> urss = (List<FriendListBean>) request.getAttribute("ListFriends");
+                          if (urss != null) {
+                            for (FriendListBean urs : urss) {
                         <tr>
                         <td>%=users%><input type="checkbox" name ="UserName" value="%=users%>"/><br/></td>
                         </tr>
