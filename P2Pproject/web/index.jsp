@@ -2,6 +2,10 @@
          contentType="text/html; charset=windows-1256"
          pageEncoding="windows-1256"
          import="controller.UserBean"
+         import="java.util.List"
+         import="java.util.ArrayList"
+         import="controller.*"
+         import="controller.FriendListBean"
          %>
 
 <!DOCTYPE html>
@@ -169,6 +173,32 @@ outputPOST();
 
     <ul id="postcontent"></ul>
 </div>
+    
+    
+    <h1>You have invite!</h1>
+                <table>
+                    <tr>
+                        <th>User Name:</th>
+                    </tr>
+                    <%List<FriendListBean> urss = (List<FriendListBean>) request.getAttribute("ListFriends");
+                        if (urss != null) {
+                            for (FriendListBean urs : urss) {
+                    %>
+                    <tr>
+                        <td>
+                            <FORM name="confirmFriend" action="ConfirmFriendController" method="post">   
+                                <%=urs.getUserName()%>
+                                <input type="hidden" name="frienduser" value="<%= urs.getUserName()%>"/>
+                                <input type="hidden" name="user" value="<%= User.getUserName()%>"/>
+                                <input type="submit" name="submit" value="Add Friend"/>
+                        </td>
+                    </tr>
+                </table>
+                </form> 
+                <%
+                        }
+                    }
+                %>
    
             
             <!-- Use foreach to print username from the Users 
