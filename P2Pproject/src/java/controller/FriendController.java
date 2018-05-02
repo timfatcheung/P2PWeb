@@ -18,9 +18,9 @@ public class FriendController extends HttpServlet {
             user = UserDAO.addfriend(user);
 
 
-                HttpSession session = request.getSession(true);
-                session.setAttribute("SessionUser", user);
-                response.sendRedirect("AfterRegistration.jsp"); //if inserted,redirect     		
+               /* HttpSession session = request.getSession(true);
+                session.setAttribute("SessionUser", user);*/
+                response.sendRedirect("index.jsp"); //if inserted,redirect     		
 
 
         } catch (Throwable Exception) {

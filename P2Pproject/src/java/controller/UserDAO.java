@@ -156,10 +156,9 @@ public class UserDAO {
 
         try {
             currentCon = DBlocal.getConnection();
-            stmt = currentCon.createStatement();
 
             stmt = currentCon.createStatement();
-            String query = "INSERT INTO FriendList VALUES ('" + sessionname
+            String query = "INSERT INTO FriendList (UserName, FriendName, Confirm) VALUES ('" + sessionname
                     + "', '" + username + "', "
                     + Confirm + ")";
 
