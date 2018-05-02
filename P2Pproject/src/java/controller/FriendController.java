@@ -17,10 +17,12 @@ public class FriendController extends HttpServlet {
             user.setsessionName(request.getParameter("sessionuser").toString());
             user = UserDAO.addfriend(user);
 
-            response.sendRedirect("index.jsp"); //if inserted,redirect     		
+                response.sendRedirect("index.jsp"); //if inserted,redirect     		
+
 
         } catch (Throwable Exception) {
             System.out.println(Exception);
         }
     }
 }
+

@@ -245,4 +245,100 @@ public class UserDAO {
         return bean;
     }
 
+    public static UserBean confirmfriend(UserBean bean) {
+        Statement stmt = null;
+
+        String username = bean.getUserName();
+        String sessionname = bean.getsessionName();
+        boolean Confirm = true;
+
+        try {
+            currentCon = DBlocal.getConnection();
+
+            stmt = currentCon.createStatement();
+            String query = "UPDATE FriendList SET  Confirm = '" + Confirm + "'WHERE Username = '" + sessionname + "' AND FriendName = ' "
+                    + username + "'";
+
+            if (stmt.executeUpdate(query) != 1) {
+                throw new Exception("Error adding user");
+            }
+
+        } catch (Exception ex) {
+            System.out.println("failed:Exception" + ex);
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception e) {
+                }
+                rs = null;
+            }
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (Exception e) {
+                }
+                stmt = null;
+            }
+            if (currentCon != null) {
+                try {
+                    currentCon.close();
+                } catch (Exception e) {
+                }
+                currentCon = null;
+            }
+        }
+        return bean;
+    }
+
+    public static UserBean ListFriend(UserBean bean, HttpServletRequest request, HttpServletResponse response) {
+        Statement stmt = null;
+        List<UserBean> users = new ArrayList<UserBean>();
+        String UserName = bean.getUserName();
+        String searchQuery = "select * from FriendList WHERE username ='" + UserName + "'";
+
+        try {
+            currentCon = DBlocal.getConnection();
+            stmt = currentCon.createStatement();
+            rs = stmt.executeQuery(searchQuery);
+            while (rs.next()) {
+                UserBean user = new UserBean();
+                user.setUserName(rs.getString("FriendName"));
+                users.add(user);
+            }
+            request.setAttribute("ListFriends", users);
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+            rd.forward(request, response);
+
+        } catch (Exception ex) {
+            System.out.println("Log In failed: An Exception has occurred! " + ex);
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception e) {
+                }
+                rs = null;
+            }
+
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (Exception e) {
+                }
+                stmt = null;
+            }
+
+            if (currentCon != null) {
+                try {
+                    currentCon.close();
+                } catch (Exception e) {
+                }
+                currentCon = null;
+            }
+        }
+
+        return bean;
+    }
+
 }
