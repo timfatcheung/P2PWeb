@@ -46,19 +46,61 @@ function updatePost(transaction, results) {
         //Get the current row
         var row = results.rows.item(i);
     if(row.post_onwer == username){
-        postholder.innerHTML += "<li>" + row.post_onwer + " <br> " + row.content + " (<a href='javascript:void(0);' onclick='deletePOST(" + row.id + ");'>Delete POST</a>)<br> <textarea rows='1' cols='50' id='comment' align='center'></textarea><a href=' 'onclick='addComment();'>Send!</a>";
-    }else{
-        postholder.innerHTML += "<li>" + row.post_onwer + " <br> " + row.content + " <br> <textarea rows='1' cols='50' id='comment' align='center'></textarea><a href=' 'onclick='addComment();'>Send!</a>";
+        postholder.innerHTML += "<li>" + row.post_onwer + " <br> " + row.content + " (<a href='javascript:void(0);' onclick='deletePOST(" + row.id + ");'>Delete POST</a>)<br> <textarea rows='1' cols='50' id='comment' align='center'></textarea><a href=' 'onclick='addComment("+ row.id+");'>Comment</a>";
+        outputComment(row.id);
+            }else{
+        postholder.innerHTML += "<li>" + row.post_onwer + " <br> " + row.content + " <br> <textarea rows='1' cols='50' id='comment' align='center'></textarea><a href=' 'onclick='addComment("+ row.id+");'>Comment</a>";
     }
          
     }
 
 }
 
-function addComment(){
-    
-}
 
+function updateComment(transaction, results) {
+    //initialise the listitems variable
+    var listitems = "";
+    var commentholder = document.getElementById("commentcontent");
+
+    commentholder.innerHTML = "";
+
+    var i;
+    //Iterate through the results
+    for (i = 0; i < results.rows.length; i++) {
+        //Get the current row
+        var row = results.rows.item(i);
+   
+        commentholder.innerHTML += "<li>" + row.comment_onwer + " <br> " + row.comment;
+    
+         
+    }
+
+}
+function addComment(id){
+mydb.transaction(function (t) {
+        t.executeSql("CREATE TABLE IF NOT EXISTS POSTComment (commentid INTEGER PRIMARY KEY ASC,postid INTEGER,comment_onwer TEXT,comment TEXT)");
+    });
+    var comment = document.getElementById("comment").value;   
+    if(comment!=null){
+        mydb.transaction(function (t) {
+                t.executeSql("INSERT INTO POSTcomment (postid, comment_onwer,comment) VALUES (?, ?, ?)", [[id], username,comment]);
+                outputComment();
+            });
+        }else{
+            alert("1!");
+        }
+} 
+function outputComment(id) {
+    //check to ensure the mydb object has been created
+    if (mydb) {
+
+        mydb.transaction(function (t) {
+            t.executeSql("SELECT * FROM POSTcomment WHERE id=?", [id], updateComment);
+        });
+    } else {
+        alert("db not found, your browser does not support web sql!");
+    }
+}
 function outputPOST() {
     //check to ensure the mydb object has been created
     if (mydb) {
@@ -172,6 +214,8 @@ outputPOST();
 <div id="postcontentholder">
 
     <ul id="postcontent"></ul>
+    <br>
+    <ul id="commentholder"></ul>
 </div>
     
     
