@@ -152,7 +152,7 @@ public class UserDAO {
 
         String username = bean.getUserName();
         String sessionname = bean.getsessionName();
-        boolean Confirm = false;
+        boolean Confirm = true;
 
         try {
             currentCon = DBlocal.getConnection();
