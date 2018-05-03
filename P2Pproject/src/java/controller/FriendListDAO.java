@@ -75,7 +75,7 @@ public class FriendListDAO {
                 users.add(user);
             }
             request.setAttribute("ListFriends", users);
-            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("FriendList.jsp");
             rd.forward(request, response);
 
         } catch (Exception ex) {

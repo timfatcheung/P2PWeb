@@ -35,30 +35,86 @@ if (window.openDatabase) {
 
 function updatePost(transaction, results) {
     //initialise the listitems variable
+
     var listitems = "";
     var postholder = document.getElementById("postcontent");
+    var commentholder = document.getElementById("commentcontent");
 
     postholder.innerHTML = "";
+    commentholder.innerHTML = "";
 
     var i;
+    var x;
     //Iterate through the results
     for (i = 0; i < results.rows.length; i++) {
         //Get the current row
         var row = results.rows.item(i);
     if(row.post_onwer == username){
-        postholder.innerHTML += "<li>" + row.post_onwer + " <br> " + row.content + " (<a href='javascript:void(0);' onclick='deletePOST(" + row.id + ");'>Delete POST</a>)<br> <textarea rows='1' cols='50' id='comment' align='center'></textarea><a href=' 'onclick='addComment();'>Send!</a>";
+        postholder.innerHTML += "<li>" + row.post_onwer + " <br> " + row.content + " (<a href='javascript:void(0);' onclick='deletePOST(" + row.id + ");'>Delete POST</a>)<br> <textarea rows='1' cols='50' id='comment' align='center'></textarea><a href=' 'onclick='addComment("+ row.id+");'>Comment</a>";
+        if (mydb) {
+                mydb.transaction(function (t) {
+            t.executeSql("SELECT * FROM POSTComment WHERE postid=?", [[row.id]], function(tx, result){
+      for ( x = 0; x < result.rows.length; ++x){
+           var row2 = result.rows.item(x);
+                   if(row2!=null){ 
+         commentholder.innerHTML += "<li>" + row2.comment_onwer + " <br> " + row2.comment+"<br>";
+                   }else{
+                       commentholder.innerHTML += "<li>"+" no comment"+"<br>";
+                   }
+        }
+
+        });
+        });
     }else{
-        postholder.innerHTML += "<li>" + row.post_onwer + " <br> " + row.content + " <br> <textarea rows='1' cols='50' id='comment' align='center'></textarea><a href=' 'onclick='addComment();'>Send!</a>";
+         alert("db not found");
+    }
+            }else{
+        postholder.innerHTML += "<li>" + row.post_onwer + " <br> " + row.content + " <br> <textarea rows='1' cols='50' id='comment' align='center'></textarea><a href=' 'onclick='addComment("+ row.id+");'>Comment</a>";
+                        mydb.transaction(function (t) {
+            t.executeSql("SELECT * FROM POSTComment WHERE postid=?", [[row.id]], function(tx, result){
+      for ( x = 0; x < result.rows.length; ++x){
+           var row2 = result.rows.item(x);
+                   if(row2!=null){
+         commentholder.innerHTML += "<li>" + row2.comment_onwer + " <br> " + row2.comment+"<br>";
+                   }else{
+                       commentholder.innerHTML += "<li>"+" no comment"+"<br>";
+                   }
+        }
+
+        });
+        });
     }
          
     }
 
 }
 
-function addComment(){
-    
-}
 
+function addComment(id){
+mydb.transaction(function (t) {
+        t.executeSql("CREATE TABLE IF NOT EXISTS POSTComment (commentid INTEGER PRIMARY KEY ASC,postid INTEGER,comment_onwer TEXT,comment TEXT)");
+    });
+    var comment = document.getElementById("comment").value;   
+    if(comment!=""){
+        mydb.transaction(function (t) {
+                t.executeSql("INSERT INTO POSTcomment (postid, comment_onwer,comment) VALUES (?, ?, ?)", [[id], username,comment]);
+                outputPOST();
+            });
+        }else{
+            alert("1!");
+        }
+} 
+function outputComment(id) {
+    //check to ensure the mydb object has been created
+    if (mydb) {
+
+        mydb.transaction(function (t) {
+            t.executeSql("SELECT * FROM POSTcomment WHERE id=?", [id], updateComment);
+        });
+    } else {
+        alert("db not found, your browser does not support web sql!");
+    }
+}
 function outputPOST() {
     //check to ensure the mydb object has been created
     if (mydb) {
@@ -103,6 +159,9 @@ function deletePOST(id) {
         mydb.transaction(function (t) {
             t.executeSql("DELETE FROM normalPOST WHERE id=?", [id], outputPOST);
         });
+                mydb.transaction(function (t) {
+            t.executeSql("DELETE FROM POSTComment WHERE postid=?", [id], outputPOST);
+        });
     } else {
         alert("db not found, your browser does not support web sql!");
     }
@@ -138,9 +197,9 @@ outputPOST();
             		<a href="findUser.jsp" align="center">Find User</a>
 				</div>
 				<div id="FunctionBox02">
-            		            <form name="submitForm" method="POST" action="servlet/openChat">
+            		            <form name="submitForm" method="POST" action="ListFriend">
                 <input type="hidden" name="param1" value="param1Value">
-                <A HREF="javascript:document.submitForm.submit()">Chat Room</A>
+                <A HREF="javascript:document.submitForm.submit()">Friend list</A>
             </form>
 				</div>
                                 <div id="FunctionBox03">
@@ -150,12 +209,7 @@ outputPOST();
 			</div>
 			<div style=margin: 0px auto; id="main">
 				<br/>
-            	<form method="post" action="postController" id="postform">
-					<input type="submit"  value="Make Post">
-					<br/>
-                	<input type="hidden" name ="UserName" value="<%= User.getUserName()%>"/>
-                	<textarea rows="4" cols="50" name="comment" form="postform" align="center">What's on your mind?</textarea>
-            	</form>
+            	
                         
 <div id="controls">
     <input type="hidden" id="UserName" name ="UserName" value="<%= User.getUserName()%>"/>
@@ -173,9 +227,13 @@ outputPOST();
 
     <ul id="postcontent"></ul>
 </div>
+        <div id="commentcontentholder">
+        Comment:
+    <ul id="commentcontent"></ul>
+    </div>
     
     
-    <h1>You have invite!</h1>
+   
                 <table>
                     <tr>
                         <th>User Name:</th>

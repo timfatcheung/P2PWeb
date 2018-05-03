@@ -1,5 +1,6 @@
 package controller;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +19,6 @@ public class ListFriendController extends HttpServlet {
             user = FriendListDAO.ListFriend(user, request , response);
 
             String username =  user.getUserName();
-            response.sendRedirect("index.jsp"); //if inserted,redirect     		
 
         } catch (Throwable Exception) {
             System.out.println(Exception);
