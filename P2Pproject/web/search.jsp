@@ -22,7 +22,7 @@
                 <div id="header">
                     <div id="headerbox">
                         <div id="headerlogo">
-                            <img src="logo.png" width="86" height="86"/>
+                            <a href="index.jsp"><img src="logo.png" width="86" height="86"/></a>
                         </div>
                         <div id="headeruser">
                             Welcome, <%= User.getUserName()%>!
