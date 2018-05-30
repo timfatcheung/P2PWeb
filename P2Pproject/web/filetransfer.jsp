@@ -90,10 +90,7 @@
             </div>
         </div>
         <div style=margin: 0px auto; id="main">
-
              <h3 id="title">Start file transfer</h3>
-            <p id="subTitle"></p>
-
             <hr>
             <div id="remotes"></div>
         </div>

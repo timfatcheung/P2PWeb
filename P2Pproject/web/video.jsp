@@ -8,23 +8,34 @@
     <head>
         <script type='text/javascript' src='https://cdn.scaledrone.com/scaledrone.min.js'></script>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
         <style>
-            video {
-                max-width: calc(50% - 100px);
-                margin: 0 50px;
-                box-sizing: border-box;
-                border-radius: 2px;
-                padding: 0;
-                box-shadow: rgba(156, 172, 172, 0.2) 0px 2px 2px, rgba(156, 172, 172, 0.2) 0px 4px 4px, rgba(156, 172, 172, 0.2) 0px 8px 8px, rgba(156, 172, 172, 0.2) 0px 16px 16px, rgba(156, 172, 172, 0.2) 0px 32px 32px, rgba(156, 172, 172, 0.2) 0px 64px 64px;
+            .videoContainer {
+                position: relative;
+                width: 200px;
+                height: 150px;
             }
-            .copy {
-                position: fixed;
-                top: 10px;
-                left: 50%;
-                transform: translateX(-50%);
-                font-size: 16px;
-                color: rgba(0, 0, 0, 0.5);
+            .videoContainer video {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+            .volume {
+                position: absolute;
+                left: 15%;
+                width: 70%;
+                bottom: 5px;
+                height: 5px;
+                display: none;
+            }
+            .connectionstate {
+                position: absolute;
+                top: 0px;
+                width: 100%;
+                text-align: center;
+                color: #fff
+            }
+            #localScreenContainer {
+                display: none;
             }
         </style>
         <title>AtoZ</title>
@@ -68,11 +79,17 @@
                 </div>
             </div>
             <div style=margin: 0px auto; id="main">
-                 <br/>
-                <video id="localVideo" autoplay muted></video>
-                <video id="remoteVideo" autoplay></video>
-                <script src="video.js"></script>
-                
+                <h3 id="title">Start video chat</h3>
+                <hr>
+                <div class="videoContainer">
+                    <video id="localVideo" style="height: 150px;" oncontextmenu="return false;"></video>
+                    <meter id="localVolume" class="volume" min="-45" max="-20" high="-25" low="-40"></meter>
+                </div>
+                <br/>
+                <div id="localScreenContainer" class="videoContainer">
+                </div>
+                <div id="remotes"></div>
+
             </div>
         </div>
     </body>
