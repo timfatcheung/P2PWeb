@@ -1,5 +1,4 @@
-<!-- Written by Sukhwinder Singh (ssruprai@hotmail.com -->
-<%-- Written by Sukhwinder Singh (ssruprai@hotmail.com --%>
+
 
 <%@ page contentType="text/html" language="java" errorPage="error.jsp" import="sukhwinder.chat.*"%>
 <%
