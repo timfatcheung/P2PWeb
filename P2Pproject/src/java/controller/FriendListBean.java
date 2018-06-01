@@ -1,11 +1,12 @@
 package controller;
 
 public class FriendListBean {
-    
+
     private int fd_id;
     private String UserName;
     private String FriendName;
     private boolean Confirm;
+    public boolean valid;
 
     public int getFd_id() {
         return fd_id;
@@ -38,6 +39,13 @@ public class FriendListBean {
     public void setConfirm(boolean Confirm) {
         this.Confirm = Confirm;
     }
-    
-    
+
+    public boolean isValid() {
+        return valid;
+    }
+
+    public void setValid(boolean Valid) {
+        this.valid = Valid;
+    }
+
 }

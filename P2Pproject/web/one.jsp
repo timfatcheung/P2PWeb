@@ -60,7 +60,7 @@
                 <div id="header">
                     <div id="headerbox">
                         <div id="headerlogo">
-                             <a href="index.jsp"><img src="logo.png" width="86" height="86"/></a>
+                            <a href="index.jsp"><img src="logo.png" width="86" height="86"/></a>
                         </div>
                         <div id="headeruser">
                             Welcome, <%= User.getUserName()%>!
@@ -81,40 +81,36 @@
                 </div>
                 <div id="FunctionBox02">
                     <form name="submitForm" method="POST" action="ListFriend">
-                        <input type="hidden" name="param1" value="param1Value">
-                        <A HREF="javascript:document.submitForm.submit()">Friend list</A>
+                        <input type="hidden" name="SessionUser" value="<%= User.getUserName()%>">
+                        <A HREF="javascript:document.submitForm.submit()">Create Group</A>
                     </form>
                 </div>
                 <div id="FunctionBox03">
                     <a href="one.jsp" align="center">chat</a>
                 </div>
-                            </div>
-            <div style=margin: 0px auto; id="main">
-                 <br/>
-
-
-                
-                <p>Chat</p>
-                Status:
-                <span id="denglu" style="color:red;">Online</span>
-                <br>
-                User:
-                <span id="userName"></span>
-                <br>
-                <br>
-                <br>
-
-                Send to:<select id="name">
-                    <option value="all">all</option>
-                    <option value="two">two</option>
-                    <option value="three">three</option>
-                </select>
-                <br>
-                Message:<input type="text" id="writeMsg"></input>
-                <br>
-                ChatBox:<div id="message" style="height: 250px;width: 280px;border: 1px solid; overflow: auto;"></div>
-                <br>
-                <input type="button" value="send" onclick="sendMsg()"></input>
             </div>
-                </body>
-                </html>
+        </div>
+        <div style=margin: 0px auto; id="main">
+            <p>Chat</p>
+            Status:
+            <span id="denglu" style="color:red;">Online</span>
+            <br>
+            User:
+            <span id="userName"></span>
+            <br>
+            <br>
+            <br>
+            Send to:<select id="name">
+                <option value="all">all</option>
+                <option value="two">two</option>
+                <option value="three">three</option>
+            </select>
+            <br>
+            Message:<input type="text" id="writeMsg"></input>
+            <br>
+            ChatBox:<div id="message" style="height: 250px;width: 280px;border: 1px solid; overflow: auto;"></div>
+            <br>
+            <input type="button" value="send" onclick="sendMsg()"></input>
+        </div>
+    </body>
+</html>

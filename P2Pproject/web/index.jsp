@@ -16,7 +16,6 @@
         <title>AtoZ</title>
         <link rel="stylesheet" type="text/css" href="index.css">
         <script type="text/javascript">
-
             //Test for browser compatibility
             var username = '<% out.print(User.getUserName());%>';
             if (window.openDatabase) {
@@ -26,8 +25,6 @@
                 mydb.transaction(function (t) {
                     t.executeSql("CREATE TABLE IF NOT EXISTS normalPOST (id INTEGER PRIMARY KEY ASC,post_onwer TEXT,content TEXT,status TEXT)");
                 });
-
-
 
             } else {
                 alert("WebSQL is not supported by your browser!");
@@ -84,11 +81,8 @@
                             });
                         });
                     }
-
                 }
-
             }
-
 
             function addComment(id) {
                 mydb.transaction(function (t) {
@@ -128,7 +122,6 @@
             }
 
 //function to add the post to the database
-
             function addPost() {
                 //check to ensure the mydb object has been created
                 if (mydb) {
@@ -152,7 +145,6 @@
             }
 
 //remove a post from the database
-
             function deletePOST(id) {
                 //check to ensure the mydb object has been created
                 if (mydb) {
@@ -198,8 +190,8 @@
                 </div>
                 <div id="FunctionBox02">
                     <form name="submitForm" method="POST" action="ListFriend">
-                        <input type="hidden" name="param1" value="param1Value">
-                        <A HREF="javascript:document.submitForm.submit()">Friend list</A>
+                        <input type="hidden" name="SessionUser" value="<%= User.getUserName()%>">
+                        <A HREF="javascript:document.submitForm.submit()">Create Group</A>
                     </form>
                 </div>
                 <div id="FunctionBox03">
@@ -209,8 +201,6 @@
             </div>
             <div style=margin: 0px auto; id="main">
                  <br/>
-
-
                 <div id="controls">
                     <input type="hidden" id="UserName" name ="UserName" value="<%= User.getUserName()%>"/>
                     <label>privacy setting:</label>
@@ -235,27 +225,25 @@
                     <ul id="commentcontent"></ul>
                 </div>
 
-
-
-               <!-- <table>
-                    <tr>
-                        <th>User Name:</th>
-                    </tr>
-                    <%List<FriendListBean> urss = (List<FriendListBean>) request.getAttribute("ListFriends");
-                        if (urss != null) {
-                            for (FriendListBean urs : urss) {
-                    %>
-                    <tr>
-                        <td>
-                            <FORM name="confirmFriend" action="ConfirmFriendController" method="post">   
-                                <%=urs.getUserName()%>
-                                <input type="hidden" name="frienduser" value="<%= urs.getUserName()%>"/>
-                                <input type="hidden" name="user" value="<%= User.getUserName()%>"/>
-                                <input type="submit" name="submit" value="Add Friend"/>
-                        </td>
-                    </tr>
-                </table>
-                </form> 
+                <!-- <table>
+                     <tr>
+                         <th>User Name:</th>
+                     </tr>
+                <%List<FriendListBean> urss = (List<FriendListBean>) request.getAttribute("ListFriends");
+                    if (urss != null) {
+                        for (FriendListBean urs : urss) {
+                %>
+                <tr>
+                    <td>
+                        <FORM name="confirmFriend" action="ConfirmFriendController" method="post">   
+                <%=urs.getUserName()%>
+                <input type="hidden" name="frienduser" value="<%= urs.getUserName()%>"/>
+                <input type="hidden" name="user" value="<%= User.getUserName()%>"/>
+                <input type="submit" name="submit" value="Add Friend"/>
+        </td>
+    </tr>
+</table>
+</form> 
                 <%
                         }
                     }
@@ -286,7 +274,6 @@
                 -->
             </div>
             <div id="RightBody">
-
             </div>
         </div>
     </body>

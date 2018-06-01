@@ -74,9 +74,11 @@ public class FriendListDAO {
                 user.setFriendName(rs.getString("FriendName"));
                 users.add(user);
             }
+            bean.setValid(true);
             request.setAttribute("ListFriends", users);
             RequestDispatcher rd = request.getRequestDispatcher("FriendList.jsp");
             rd.forward(request, response);
+
 
         } catch (Exception ex) {
             System.out.println("Log In failed: An Exception has occurred! " + ex);

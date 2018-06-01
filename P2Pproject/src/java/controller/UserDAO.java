@@ -307,8 +307,9 @@ public class UserDAO {
                 users.add(user);
             }
             request.setAttribute("ListFriends", users);
-            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("FriendList.jsp");
             rd.forward(request, response);
+            bean.setValid(true);
 
         } catch (Exception ex) {
             System.out.println("Log In failed: An Exception has occurred! " + ex);

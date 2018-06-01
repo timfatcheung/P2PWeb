@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,12 +14,11 @@ public class ListFriendController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, java.io.IOException {
 
         try {
-            HttpSession session = request.getSession(true);
             FriendListBean user = new FriendListBean();
-            user.setUserName(session.getAttribute("SessionUser").toString());
+            user.setUserName(request.getParameter("SessionUser").toString());
             user = FriendListDAO.ListFriend(user, request , response);
-
-            String username =  user.getUserName();
+                 String ListFriends =  user.getFriendName();
+                response.sendRedirect("FriendList.jsp");      		
 
         } catch (Throwable Exception) {
             System.out.println(Exception);

@@ -34,7 +34,7 @@
                 background-color: #ffeed7;
             }
             .p2pConnected, .p2pCompleted {
-                background-color: #7aa5ff;
+                background-color: #c5e8f7;
             }
             .p2pFailed {
                 background-color: #ffe3eb
@@ -55,44 +55,45 @@
         <link rel="stylesheet" type="text/css" href="index.css">
     </head>
     <body>
-
-        <header>
-            <div id="header">
-                <div id="headerbox">
-                    <div id="headerlogo">
-                        <a href="index.jsp"><img src="logo.png" width="86" height="86"/></a>
-                    </div>
-                    <div id="headeruser">
-                        Welcome, <%= User.getUserName()%>!
-                    </div>
-                    <div>
-                        <form method="link" action="logout.jsp" >
-                            <input id="logout" type="submit" value="Logout">
-                        </form>
+        <div id="container">
+            <header>
+                <div id="header">
+                    <div id="headerbox">
+                        <div id="headerlogo">
+                            <a href="index.jsp"><img src="logo.png" width="86" height="86"/></a>
+                        </div>
+                        <div id="headeruser">
+                            Welcome, <%= User.getUserName()%>!
+                        </div>
+                        <div>
+                            <form method="link" action="logout.jsp" >
+                                <input id="logout" type="submit" value="Logout">
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </header>
+            </header>
 
-        <div id="LeftMenu">
-            <br/>
-            <div id="FunctionBox01">
-                <a href="findUser.jsp" align="center">Find User</a>
+            <div id="LeftMenu">
+                <br/>
+                <div id="FunctionBox01">
+                    <a href="findUser.jsp" align="center">Find User</a>
+                </div>
+                <div id="FunctionBox02">
+                    <form name="submitForm" method="POST" action="ListFriend">
+                        <input type="hidden" name="SessionUser" value="<%= User.getUserName()%>">
+                        <A HREF="javascript:document.submitForm.submit()">Create Group</A>
+                    </form>
+                </div>
+                <div id="FunctionBox03">
+                    <a href="one.jsp" align="center">chat</a>
+                </div>
             </div>
-            <div id="FunctionBox02">
-                <form name="submitForm" method="POST" action="ListFriend">
-                    <input type="hidden" name="param1" value="param1Value">
-                    <A HREF="javascript:document.submitForm.submit()">Friend list</A>
-                </form>
+            <div style=margin: 0px auto; id="main">
+                 <h3 id="title">Start file transfer</h3>
+                <hr>
+                <div id="remotes"></div>
             </div>
-            <div id="FunctionBox03">
-                <a href="one.jsp" align="center">chat</a>
-            </div>
-        </div>
-        <div style=margin: 0px auto; id="main">
-             <h3 id="title">Start file transfer</h3>
-            <hr>
-            <div id="remotes"></div>
         </div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
         <script src="webrtc.js"></script>

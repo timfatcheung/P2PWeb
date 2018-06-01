@@ -70,8 +70,8 @@
                 </div>
                 <div id="FunctionBox02">
                     <form name="submitForm" method="POST" action="ListFriend">
-                        <input type="hidden" name="param1" value="param1Value">
-                        <A HREF="javascript:document.submitForm.submit()">Friend list</A>
+                        <input type="hidden" name="SessionUser" value="<%= User.getUserName()%>">
+                        <A HREF="javascript:document.submitForm.submit()">Create Group</A>
                     </form>
                 </div>
                 <div id="FunctionBox03">

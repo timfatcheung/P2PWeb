@@ -42,7 +42,13 @@
                     <a href="findUser.jsp" align="center">Find User</a>
                 </div>
                 <div id="FunctionBox02">
-                    <a href="createChatroom.jsp">Create Chatroom</a>
+                    <form name="submitForm" method="POST" action="ListFriend">
+                        <input type="hidden" name="SessionUser" value="<%= User.getUserName()%>">
+                        <A HREF="javascript:document.submitForm.submit()">Create Group</A>
+                    </form>
+                </div>
+                <div id="FunctionBox03">
+                    <a href="one.jsp" align="center">chat</a>
                 </div>
             </div>
             <div style=margin: 0px auto; id="main">
