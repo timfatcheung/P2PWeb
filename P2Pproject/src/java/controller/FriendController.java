@@ -19,7 +19,6 @@ public class FriendController extends HttpServlet {
 
                 response.sendRedirect("index.jsp"); //if inserted,redirect     		
 
-
         } catch (Throwable Exception) {
             System.out.println(Exception);
         }

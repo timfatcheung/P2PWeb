@@ -22,7 +22,7 @@
                 <div id="header">
                     <div id="headerbox">
                         <div id="headerlogo">
-                             <a href="index.jsp"><img src="logo.png" width="86" height="86"/></a>
+                            <a href="index.jsp"><img src="logo.png" width="86" height="86"/></a>
                         </div>
                         <div id="headeruser">
                             Welcome, <%= User.getUserName()%>!
@@ -54,7 +54,7 @@
             </div>
             <div style=margin: 0px auto; id="main">
                  <br/>
-                <form name="addGroup" action="GroupController" method="post"> 
+                <form name="addGroup" action="groupController" method="post"> 
                     Group Name:<br/>
                     <input type="text" name="GroupName" placeholder="Groupname" required="" /><br/>
                     Friend Name:<br/>
@@ -62,11 +62,12 @@
                         if (urss != null) {
                             for (FriendListBean urs : urss) {
                     %>
-                    <%=urs.getFriendName()%><input type="checkbox" name="user" value="<%= urs.getUserName()%>"/><br/>
+                    <%=urs.getFriendName()%><input type="checkbox" name="member" value="<%= urs.getUserName()%>"/><br/>
                     <%
                             }
                         }
                     %>
+                    <input type="hidden" name="SessionUser" value="<%= User.getUserName()%>">
                     <input type="submit" name="submit" value="Add Group"/>
                 </form>
             </div>

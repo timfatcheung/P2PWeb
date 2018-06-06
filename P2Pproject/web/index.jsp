@@ -224,58 +224,9 @@
                     Comment:
                     <ul id="commentcontent"></ul>
                 </div>
-
-                <!-- <table>
-                     <tr>
-                         <th>User Name:</th>
-                     </tr>
-                <%List<FriendListBean> urss = (List<FriendListBean>) request.getAttribute("ListFriends");
-                    if (urss != null) {
-                        for (FriendListBean urs : urss) {
-                %>
-                <tr>
-                    <td>
-                        <FORM name="confirmFriend" action="ConfirmFriendController" method="post">   
-                <%=urs.getUserName()%>
-                <input type="hidden" name="frienduser" value="<%= urs.getUserName()%>"/>
-                <input type="hidden" name="user" value="<%= User.getUserName()%>"/>
-                <input type="submit" name="submit" value="Add Friend"/>
-        </td>
-    </tr>
-</table>
-</form> 
-                <%
-                        }
-                    }
-                %>
-
-
-                <!-- Use foreach to print username from the Users 
-                <h1>You have invite!</h1>
-                <form method="post" action="addFriendList">
-                <table>
-                <tr>
-                <th>User:</th>
-                <th>Confirm?</th>
-                </tr>
-                for (Sting users : rs){ 
-                <tr>
-                <td>%=users%></td>
-                <td>
-                <input type="hidden" name ="UserName" value="%=users%>"/>
-                Yes<input type="radio" name ="Confirm" value="true"/>
-                No<input type="radio" name ="Confirm" value="false"/>
-                </td>
-                </tr>
-                }
-                </table>
-                <input type="submit" name="submit" value="Submit"/>
-                </form> 
-                -->
+                <div id="RightBody">
+                </div>
             </div>
-            <div id="RightBody">
-            </div>
-        </div>
     </body>
 
 </html>

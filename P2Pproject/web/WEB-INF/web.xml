@@ -6,6 +6,14 @@
         </session-timeout>
     </session-config>
     
+             <servlet>
+        <servlet-name>
+            groupController
+        </servlet-name>
+        <servlet-class>
+            controller.groupController
+        </servlet-class>
+    </servlet>
     
          <servlet>
         <servlet-name>
@@ -136,64 +144,64 @@
 		If user doesn't make any request after provided minutes he will be automatically logged out.
 		Default is 30 minutes.
 
-		-->
-		<param-value>30</param-value>
-	</context-param>
+        -->
+        <param-value>30</param-value>
+    </context-param>
 
-	<context-param>
-		<param-name>refreshAfter</param-name>
-		<!-- Add time in seconds after which user's browser window will automatically refresh to display
-		new messages.
-		Default is 10 seconds.
-		-->
-		<param-value>10</param-value>
-	</context-param>
+    <context-param>
+        <param-name>refreshAfter</param-name>
+        <!-- Add time in seconds after which user's browser window will automatically refresh to display
+        new messages.
+        Default is 10 seconds.
+        -->
+        <param-value>10</param-value>
+    </context-param>
 
-	<context-param>
-		<param-name>maxNoOfMessages</param-name>
-		<!--  Maximum Number of messages that are stored in a list which is used to store all messages
-		in a room. After this limit is reached older messages are removed.
-		Default is 25
-		-->		
-		<param-value>25</param-value>
-	</context-param>
+    <context-param>
+        <param-name>maxNoOfMessages</param-name>
+        <!--  Maximum Number of messages that are stored in a list which is used to store all messages
+        in a room. After this limit is reached older messages are removed.
+        Default is 25
+        -->		
+        <param-value>25</param-value>
+    </context-param>
 
-	<!-- This is servlet 2.3 specific feature. It is used to remove a automactically
-	user when his session expires. Without it sessions will expire but users' name will
-	not be removed from list of all Chatters currently chatting.-->
-	<listener>
-		<listener-class>sukhwinder.chat.SessionListener</listener-class>
-	</listener>
+    <!-- This is servlet 2.3 specific feature. It is used to remove a automactically
+    user when his session expires. Without it sessions will expire but users' name will
+    not be removed from list of all Chatters currently chatting.-->
+    <listener>
+        <listener-class>sukhwinder.chat.SessionListener</listener-class>
+    </listener>
  
 
-	<servlet>
-		<servlet-name>login</servlet-name>
-		<servlet-class>sukhwinder.chat.servlet.LoginServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>manageChat</servlet-name>
-		<servlet-class>sukhwinder.chat.ManageChatServlet</servlet-class>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
+    <servlet>
+        <servlet-name>login</servlet-name>
+        <servlet-class>sukhwinder.chat.servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>manageChat</servlet-name>
+        <servlet-class>sukhwinder.chat.ManageChatServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
 
-	<servlet>
-		<servlet-name>saveInfo</servlet-name>
-		<servlet-class>sukhwinder.chat.servlet.SaveInfoServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>manageChat</servlet-name>
-		<url-pattern>/servlet/manageChat</url-pattern>
+    <servlet>
+        <servlet-name>saveInfo</servlet-name>
+        <servlet-class>sukhwinder.chat.servlet.SaveInfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>manageChat</servlet-name>
+        <url-pattern>/servlet/manageChat</url-pattern>
 
-	</servlet-mapping>
+    </servlet-mapping>
 
-	<servlet-mapping>
-		<servlet-name>saveInfo</servlet-name>
-		<url-pattern>/servlet/saveInfo</url-pattern>
-	</servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>saveInfo</servlet-name>
+        <url-pattern>/servlet/saveInfo</url-pattern>
+    </servlet-mapping>
         
         
         
-            <servlet>
+    <servlet>
         <servlet-name>websocket</servlet-name>
         <servlet-class>webchat.SocketServlet</servlet-class>
     </servlet>
@@ -202,15 +210,15 @@
         <url-pattern>*.do</url-pattern>
     </servlet-mapping>
 
-	<welcome-file-list>
-		<welcome-file>login.jsp</welcome-file>
-		<welcome-file>login.html</welcome-file>
-		<welcome-file>login.htm</welcome-file>
-		<welcome-file>index.html</welcome-file>
-	</welcome-file-list>
+    <welcome-file-list>
+        <welcome-file>login.jsp</welcome-file>
+        <welcome-file>login.html</welcome-file>
+        <welcome-file>login.htm</welcome-file>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
 
-	<error-page>
-		<error-code>500</error-code>
-		<location>/error.jsp</location>
-	</error-page>
-    </web-app>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error.jsp</location>
+    </error-page>
+</web-app>

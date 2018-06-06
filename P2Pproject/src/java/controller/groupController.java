@@ -15,17 +15,19 @@ public class groupController extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, java.io.IOException {
 
         try {
-            FriendListBean friend = new FriendListBean();
-            friend.setUserName(request.getParameter("username").toString());
-            friend = FriendListDAO.ListFriend(friend , request , response);
-            if (friend.isValid()) {
-               
-                String username =  friend.getUserName();
+            GroupBean group = new GroupBean();
 
-                response.sendRedirect("group.jsp"); //if logged-in,redirect     		
-            } else {
-                response.sendRedirect("invalidLogin.jsp"); //login failed
-            }
+            String[] member = request.getParameterValues("member");
+            group.setMember1(request.getParameter("SessionUser").toString());
+            group.setMember2(member[0].toString());
+            group.setMember3(member[1].toString());
+            group.setMember4(member[2].toString());
+            group.setMember5(member[3].toString());
+
+            group = GroupDAO.AddGroup(group);
+
+            response.sendRedirect("index.jsp");
+
         } catch (Throwable Exception) {
             System.out.println(Exception);
         }
