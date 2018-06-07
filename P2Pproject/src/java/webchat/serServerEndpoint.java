@@ -21,7 +21,7 @@ import javax.websocket.server.ServerEndpoint;
  * @author ctf
  */
 
-@ServerEndpoint(value = "/one/{user}")
+@ServerEndpoint(value = "/webchat/{user}")
 public class serServerEndpoint {
     private Session session;
     private static final Logger sysLogger = Logger.getLogger("sysLog");

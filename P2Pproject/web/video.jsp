@@ -79,7 +79,7 @@
                 </div>
             </div>
             <div style=margin: 0px auto; id="main">
-                <h3 id="title">Start video chat</h3>
+                 <h3 id="title">Start video chat</h3>
                 <hr>
                 <div class="videoContainer">
                     <video id="localVideo" style="height: 150px;" oncontextmenu="return false;"></video>
@@ -92,5 +92,8 @@
 
             </div>
         </div>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script src="webrtc.js"></script>
+        <script src="video.js"></script>
     </body>
 </html>

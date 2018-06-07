@@ -195,7 +195,7 @@
                     </form>
                 </div>
                 <div id="FunctionBox03">
-                    <a href="one.jsp" align="center">chat</a>
+                    <a href="webchat.jsp" align="center">chat</a>
                 </div>
 
             </div>
